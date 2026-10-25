@@ -1102,6 +1102,33 @@ $('#shmodal-form').addEventListener('submit', e => {
   }
   BampState.onChange(() => { mergeCustomItems(); const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
 })();
+
+// First-time onboarding flow (auto-opens once on first visit, or anytime via #btn-open-ob or ?welcome=1)
+(() => {
+  const obBg = document.getElementById("ob-bg");
+  const obClose = document.getElementById("ob-close");
+  const obBtn = document.getElementById("btn-open-ob");
+  const OB_KEY = "klober-onboarded-v1";
+  const qsOb = new URLSearchParams(location.search);
+  const isAddFlow = qsOb.has("add");
+  const forceOb = qsOb.has("welcome");
+  if (obBg) {
+    if (forceOb || (!isAddFlow && !localStorage.getItem(OB_KEY))) {
+      obBg.classList.add("open");
+    }
+    if (obClose) obClose.addEventListener("click", () => {
+      try { localStorage.setItem(OB_KEY, "1"); } catch (e) {}
+      obBg.classList.remove("open");
+    });
+    obBg.addEventListener("click", (e) => {
+      if (e.target === obBg) {
+        try { localStorage.setItem(OB_KEY, "1"); } catch (e) {}
+        obBg.classList.remove("open");
+      }
+    });
+    if (obBtn) obBtn.addEventListener("click", () => obBg.classList.add("open"));
+  }
+})();
 </script>
 </body>
 </html>
