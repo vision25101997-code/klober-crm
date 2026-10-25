@@ -1013,7 +1013,7 @@ function viewGtm() {
   const card = v => { const on = liked(v), ig = isIg(v), watchLbl = ig ? 'לריל ↗' : 'ליוטיוב ↗';
     return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${manCls(v)}" data-id="${esc(v.id)}">
       <a class="thumb" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(v.title)}">
-        ${v.thumbnail ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph kloading">${K_LOADER_SVG}<span>טוען…</span></div>`}
+        ${v.thumbnail ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph kloading">${K_LOADER_SVG}${enrichingIds.has(v.id) ? `<span>טוען…</span>` : ``}</div>`}
         <span class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="#04140D"><path d="M8 5v14l11-7z"/></svg></span>
         ${v.duration ? `<span class="dur">${esc(v.duration)}</span>` : (ig ? `<span class="dur">Reel</span>` : '')}
       </a>
