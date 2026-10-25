@@ -661,12 +661,28 @@ async function enrichCustomItem(tab, it, withOverlay = false) {
   const t0 = Date.now();
   if (withOverlay) showKLoader(tab === 'influencers' ? 'מעלה משפיען ל-Klober…' : 'מעלה את הקובץ ל-Klober…', 'שולף תמונה ופרטים מהקישור');
   try {
-    const r = await fetch('https://api.microlink.io/?url=' + encodeURIComponent(u));
-    if (r.ok) {
-      const j = await r.json();
-      const d = j && j.data;
+    let d = null;
+    try {
+      const sr = await fetch(PUSH_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'enrich', url: u })
+      });
+      if (sr.ok) {
+        const sj = await sr.json();
+        if (sj && sj.data) d = sj.data;
+      }
+    } catch (e) {}
+    if (!d) {
+      const r = await fetch('https://api.microlink.io/?url=' + encodeURIComponent(u));
+      if (r.ok) {
+        const j = await r.json();
+        d = j && j.data;
+      }
+    }
+    if (d) {
       if (d) {
-        const imgUrl = d.image && d.image.url ? d.image.url : (d.logo && d.logo.url ? d.logo.url : '');
+        const imgUrl = d.imageDataUrl || (d.image && d.image.url ? d.image.url : (d.logo && d.logo.url ? d.logo.url : ''));
         let cleanTitle = (d.title || '').replace(/^.*?on Instagram[\u200e\u200f]*:\s*[“"”]?/i, '').replace(/[”"“][\u200e\u200f]*$/, '').trim();
         if (cleanTitle.length > 110) cleanTitle = cleanTitle.slice(0, 107) + '…';
         const desc = (d.description || '').replace(/^\d+[\d,.KMB]*\s+likes?,\s*\d+[\d,.KMB]*\s+comments?\s*-\s*/i, '').trim();
