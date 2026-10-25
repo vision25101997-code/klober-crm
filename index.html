@@ -203,33 +203,57 @@ textarea.notes:focus,.search:focus,.sel:focus{outline:2px solid var(--brand-ring
 footer{color:var(--mute);font-size:12px;padding:30px 16px max(50px,calc(env(safe-area-inset-bottom) + 24px));text-align:center}
 
 /* responsive */
+html,body{overflow-x:hidden;max-width:100%}
+.list,.news,.sllist{grid-template-columns:minmax(0,1fr)}
+.cmail{overflow-wrap:anywhere;word-break:break-word}
+.cmail span,.cmail a{min-width:0;overflow-wrap:anywhere}
 @media (max-width:980px){
   .row{grid-template-columns:44px minmax(0,1fr) auto auto 20px}
   .row .niche,.row .stcell{display:none}
   .dgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .site.pin{grid-template-columns:1fr}
+  .site.pin{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:640px){
-  .wrap{padding:0 14px}
-  .top .wrap{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px;gap:10px}
+  .wrap{padding:0 12px}
+  .top .wrap{flex-wrap:wrap;height:auto;padding-top:8px;padding-bottom:8px;gap:8px}
   .brand .sub{display:none}
-  nav.tabs{order:3;width:100%;margin:0}
-  nav.tabs button{flex:1;justify-content:center;padding:8px 4px;gap:5px;font-size:14px}
-  nav.tabs button .n{min-width:0;padding:0 6px;font-size:11px}
-  .vgrid{grid-template-columns:1fr}
-  .sync{margin-inline-start:auto}
-  .hero{padding-top:18px} .hero h1{font-size:23px}
-  .filters{padding:10px;gap:8px}
+  .sync{margin-inline-start:auto;font-size:11px}
+  nav.tabs{order:3;width:100%;margin:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;padding:3px;border-radius:14px}
+  nav.tabs::-webkit-scrollbar{display:none}
+  nav.tabs button{flex-direction:column;justify-content:center;align-items:center;padding:6px 2px;gap:2px;font-size:11.5px;border-radius:10px;line-height:1.15;min-width:0}
+  nav.tabs button .n{min-width:0;padding:1px 5px;font-size:10px;line-height:1.2}
+  .hero{padding:14px 0 4px}
+  .hero h1{font-size:21px;line-height:1.25}
+  .hero p{font-size:13.5px;line-height:1.45}
+  .seg{display:flex;width:100%;gap:4px;padding:4px;margin:12px 0 8px;border-radius:12px}
+  .seg button{flex:1;justify-content:center;text-align:center;font-size:13px;padding:8px 6px;border-radius:9px;min-width:0}
+  .cfil{padding:8px;gap:5px;margin-bottom:8px}
+  .cfil .lbl{width:100%;font-size:12px;margin-bottom:2px}
+  .cfil .chip,.filters .chip{font-size:12px;padding:5px 9px;gap:4px}
+  .filters{padding:10px;gap:7px;margin:10px 0 6px}
+  .filters .chips{width:100%}
   .filters .sep{display:none}
-  .search{min-width:0;width:100%;flex-basis:100%}
-  .count{width:100%;margin:0}
-  .row{grid-template-columns:40px minmax(0,1fr) auto 18px;gap:10px;padding:12px}
+  .sel{flex:1 1 calc(50% - 4px);min-width:0;font-size:14px;padding:7px 8px}
+  .search{min-width:0;width:100%;flex-basis:100%;font-size:16px;padding:8px 10px}
+  .count{margin:0;font-size:12px;margin-inline-end:auto}
+  .expbtn{font-size:12px;padding:6px 12px}
+  .row{grid-template-columns:38px minmax(0,1fr) auto 16px;gap:8px;padding:10px 12px}
   .row .fitcell{display:none}
-  .who .mst{display:flex}
-  .av{width:40px;height:40px;font-size:16px}
-  .dgrid{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr}
-  textarea.notes{min-width:0;width:100%}
+  .who b{white-space:normal;display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:14px;line-height:1.3}
+  .who b .man{margin-inline-start:0;font-size:10.5px;padding:1px 7px}
+  .who small{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .who .mst{display:flex;flex-wrap:wrap}
+  .fol{font-size:13.5px}
+  .av{width:38px;height:38px;font-size:15px;border-radius:10px}
+  .cmail{padding:0 12px 8px;font-size:12px;gap:6px}
+  .det{padding:12px}
+  .dgrid{grid-template-columns:minmax(0,1fr);gap:10px}
+  .grid,.vgrid{grid-template-columns:minmax(0,1fr);gap:14px}
+  .site .body,.vid .body,.item,.slv{padding:12px 14px}
+  .site h3{font-size:16px}
+  .man{font-size:11px;padding:2px 8px}
+  .slstrip{padding:10px 12px;gap:6px 12px;font-size:12px}
+  textarea.notes{min-width:0;width:100%;font-size:16px}
 }
 </style>
 </head>
@@ -544,7 +568,7 @@ function viewSitelog() {
     <p>כל גרסה של האתר שעלתה לאוויר — מתי, מה השתנה, ואיך לחזור אחורה.</p></section>
     <div class="slstrip"><span>גרסה באוויר: <b>${cur ? esc(cur.version) : '—'}</b></span><span>${link('https://klober.ai')}</span>
       <span>ריפו: ${link('https://github.com/vision25101997-code/klober-site', ltr('klober-site'))}</span>
-      <span>DNS: <span class="ok">מחובר</span></span><span>HTTPS: <span class="wait">ממתין לתעודה</span></span></div>
+      <span>DNS: <span class="ok">מחובר</span></span><span>HTTPS: <span class="ok">פעיל 🔒</span></span></div>
     ${list.length ? `<div class="sllist">${list.map(card).join('')}</div>` : '<div class="empty">עדיין אין גרסאות בלוג</div>'}
     <div class="slhow"><b>איך מעדכנים את האתר?</b><ol>
       <li>מייצאים ZIP של האתר מ-Claude.</li>
