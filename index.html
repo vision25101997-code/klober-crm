@@ -750,49 +750,47 @@ $('#app').addEventListener('click', e => { if (e.target.closest('[data-export="i
 BampState.onMode(mode => { const s = $('#sync'); s.className = 'sync ' + mode; $('span', s).textContent = mode === 'server' ? 'מסונכרן לשרת' : mode === 'ghpages' ? 'מסונכרן · GitHub Pages' : 'שמירה מקומית'; });
 window.addEventListener('hashchange', () => { const t = location.hash.slice(1); if (TABS.includes(t)) { UI.tab = t; render(); } });
 
-function openShareModal(prefillUrl = '', prefillTitle = '', prefillTab = '') {
-  const bg = $('#shmodal-bg');
-  const cleanUrl = (prefillUrl.match(/https?:\/\/\S+/) || [prefillUrl])[0].trim();
-  $('#sh-url').value = cleanUrl;
-  $('#sh-title').value = prefillTitle || '';
-  $('#sh-note').value = '';
-  if (prefillTab && ['gtm', 'influencers', 'inspiration', 'news'].includes(prefillTab)) {
-    $('#sh-tab').value = prefillTab;
-  } else if (/instagram\.com\/(reel|p)\/|youtube\.com|youtu\.be|tiktok\.com/i.test(cleanUrl)) {
-    $('#sh-tab').value = 'gtm';
-  } else if (/instagram\.com\/[A-Za-z0-9_.]+\/?$/i.test(cleanUrl)) {
-    $('#sh-tab').value = 'influencers';
-  } else if (['gtm', 'influencers', 'inspiration', 'news'].includes(UI.tab)) {
-    $('#sh-tab').value = UI.tab;
-  }
-  bg.classList.add('open');
+function detectShareTab(cleanUrl, explicitTab = '') {
+  if (explicitTab && ['gtm', 'influencers', 'inspiration', 'news'].includes(explicitTab)) return explicitTab;
+  if (/instagram\.com\/(reel|p|tv)\/|youtube\.com|youtu\.be|tiktok\.com/i.test(cleanUrl)) return 'gtm';
+  if (/instagram\.com\/[A-Za-z0-9_.]+\/?(\?.*)?$/i.test(cleanUrl)) return 'influencers';
+  if (['gtm', 'influencers', 'inspiration', 'news'].includes(UI.tab)) return UI.tab;
+  return 'gtm';
 }
-function closeShareModal() { $('#shmodal-bg').classList.remove('open'); }
-$('#btn-open-add').addEventListener('click', () => openShareModal());
-$('#shmodal-close').addEventListener('click', closeShareModal);
-$('#shmodal-cancel').addEventListener('click', closeShareModal);
-$('#shmodal-bg').addEventListener('click', e => { if (e.target.id === 'shmodal-bg') closeShareModal(); });
-$('#shmodal-form').addEventListener('submit', e => {
-  e.preventDefault();
-  const rawUrl = $('#sh-url').value.trim();
-  if (!rawUrl) return;
-  const tab = $('#sh-tab').value;
-  const titleIn = $('#sh-title').value.trim();
-  const noteIn = $('#sh-note').value.trim();
+function showToast(msg) {
+  let t = $('#share-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'share-toast';
+    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:200;background:#16C47F;color:#04140D;font-weight:800;font-size:14px;padding:10px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.5);white-space:nowrap;transition:opacity .3s';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  clearTimeout(t._tm);
+  t._tm = setTimeout(() => { t.style.opacity = '0'; }, 3500);
+}
+function saveSharedItem(rawInput, titleIn = '', noteIn = '', explicitTab = '') {
+  const mUrl = String(rawInput || '').match(/https?:\/\/[^\s"'<>]+/i);
+  const rawUrl = (mUrl ? mUrl[0] : String(rawInput || '')).trim();
+  if (!rawUrl) return null;
+  const tab = detectShareTab(rawUrl, explicitTab);
   const today = new Date().toISOString().slice(0, 10);
   const id = 'manual-' + Date.now();
+  let host = 'web';
+  try { host = new URL(rawUrl).hostname.replace(/^www\./, ''); } catch (e) {}
   let item;
   if (tab === 'gtm') {
-    const igMatch = rawUrl.match(/instagram\.com\/(?:reel|p)\/([A-Za-z0-9_-]+)/i);
+    const igMatch = rawUrl.match(/instagram\.com\/(?:reel|p|tv)\/([A-Za-z0-9_-]+)/i);
     const clean = igMatch ? `https://www.instagram.com/reel/${igMatch[1]}/` : rawUrl;
     item = {
       id: igMatch ? igMatch[1] : id,
-      title: titleIn || (igMatch ? `Instagram Reel (${igMatch[1]})` : clean),
-      channel: igMatch ? 'Instagram Reel' : new URL(clean).hostname.replace(/^www\./, ''),
+      title: titleIn || (igMatch ? `Instagram Reel · ${igMatch[1]}` : clean),
+      channel: igMatch ? 'Instagram Reel' : host,
       url: clean,
       platform: igMatch ? 'instagram' : 'web',
       duration: igMatch ? 'Reel' : '',
-      approach: 'הועלה מהנייד',
+      approach: 'שותף מהנייד',
       summary: noteIn || 'שותף ישירות מהטלפון ל-Klober CRM.',
       takeaway: noteIn || '',
       dateAdded: today,
@@ -801,17 +799,18 @@ $('#shmodal-form').addEventListener('submit', e => {
     };
   } else if (tab === 'influencers') {
     const hMatch = rawUrl.match(/instagram\.com\/([A-Za-z0-9_.]+)/i);
-    const handle = hMatch && !['reel', 'p', 'stories'].includes(hMatch[1].toLowerCase()) ? '@' + hMatch[1] : (titleIn || '@creator');
+    const handle = hMatch && !['reel', 'p', 'stories', 'tv'].includes(hMatch[1].toLowerCase()) ? '@' + hMatch[1] : (titleIn || '@creator');
+    const clean = hMatch ? `https://www.instagram.com/${hMatch[1]}/` : rawUrl;
     item = {
-      id,
+      id: hMatch ? 'ig-' + hMatch[1].toLowerCase() : id,
       name: titleIn || handle.replace(/^@/, ''),
       handle,
-      instagramUrl: rawUrl,
+      instagramUrl: clean,
       followers: null,
       location: '',
       fitScore: 9,
       niche: 'טק / AI',
-      whyFit: noteIn || 'שותף ידנית מהטלפון.',
+      whyFit: noteIn || 'שותף ישירות מהטלפון.',
       dateAdded: today,
       manualUpload: true,
       uploadedBy: 'בר ורועי'
@@ -819,10 +818,10 @@ $('#shmodal-form').addEventListener('submit', e => {
   } else if (tab === 'inspiration') {
     item = {
       id,
-      name: titleIn || new URL(rawUrl).hostname.replace(/^www\./, ''),
+      name: titleIn || host,
       url: rawUrl,
       screenshot: '',
-      whySpecial: noteIn || 'שותף ידנית מהטלפון.',
+      whySpecial: noteIn || 'שותף ישירות מהטלפון.',
       dateAdded: today,
       manualUpload: true,
       uploadedBy: 'בר ורועי'
@@ -831,12 +830,12 @@ $('#shmodal-form').addEventListener('submit', e => {
     item = {
       id,
       title: titleIn || rawUrl,
-      source: new URL(rawUrl).hostname.replace(/^www\./, ''),
+      source: host,
       url: rawUrl,
       date: today,
       dateAdded: today,
-      summary: noteIn || 'שותף ידנית מהטלפון.',
-      whyMatters: noteIn || 'שותף ידנית מהטלפון.',
+      summary: noteIn || 'שותף ישירות מהטלפון.',
+      whyMatters: noteIn || 'שותף ישירות מהטלפון.',
       manualUpload: true,
       uploadedBy: 'בר ורועי'
     };
@@ -848,24 +847,50 @@ $('#shmodal-form').addEventListener('submit', e => {
   UI.tab = tab;
   UI.src = Object.assign({}, UI.src, { [tab]: 'ours' });
   Prefs.set({ tab: UI.tab, src: UI.src });
-  closeShareModal();
   render();
+  showToast('✓ הפוסט עלה ונשמר ב-✋ ידני!');
+  return item;
+}
+function openShareModal(prefillUrl = '', prefillTitle = '', prefillTab = '') {
+  const bg = $('#shmodal-bg');
+  const cleanUrl = (String(prefillUrl).match(/https?:\/\/\S+/) || [prefillUrl])[0].trim();
+  $('#sh-url').value = cleanUrl;
+  $('#sh-title').value = prefillTitle || '';
+  $('#sh-note').value = '';
+  $('#sh-tab').value = detectShareTab(cleanUrl, prefillTab);
+  bg.classList.add('open');
+}
+function closeShareModal() { $('#shmodal-bg').classList.remove('open'); }
+$('#btn-open-add').addEventListener('click', () => openShareModal());
+$('#shmodal-close').addEventListener('click', closeShareModal);
+$('#shmodal-cancel').addEventListener('click', closeShareModal);
+$('#shmodal-bg').addEventListener('click', e => { if (e.target.id === 'shmodal-bg') closeShareModal(); });
+$('#shmodal-form').addEventListener('submit', e => {
+  e.preventDefault();
+  saveSharedItem($('#sh-url').value.trim(), $('#sh-title').value.trim(), $('#sh-note').value.trim(), $('#sh-tab').value);
+  closeShareModal();
 });
 
 (async () => {
+  // Capture shared URL immediately from location.href before anything else
+  const rawHref = location.href;
+  const qp = new URLSearchParams(location.search);
+  let sharedUrl = qp.get('add') || qp.get('url') || qp.get('text') || '';
+  if (!sharedUrl && /[?&]add=(.+)/i.test(rawHref)) {
+    try { sharedUrl = decodeURIComponent(rawHref.split(/[?&]add=/i)[1]); } catch (e) { sharedUrl = rawHref.split(/[?&]add=/i)[1]; }
+  }
+  const sharedTitle = qp.get('title') || '';
+  const sharedTab = qp.get('tab') || '';
   const h = location.hash.slice(1); if (TABS.includes(h)) UI.tab = h;
   await Promise.all([loadData(), BampState.start()]);
   mergeCustomItems();
-  render();
-  const qp = new URLSearchParams(location.search);
-  const sharedUrl = qp.get('add') || qp.get('url') || qp.get('text') || '';
-  const sharedTitle = qp.get('title') || '';
-  const sharedTab = qp.get('tab') || '';
-  if (sharedUrl) {
-    history.replaceState(null, '', location.pathname + location.hash);
-    openShareModal(sharedUrl, sharedTitle, sharedTab);
+  if (sharedUrl && /https?:\/\//i.test(sharedUrl)) {
+    history.replaceState(null, '', location.pathname);
+    saveSharedItem(sharedUrl, sharedTitle, '', sharedTab);
+  } else {
+    render();
   }
-  BampState.onChange(() => { const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
+  BampState.onChange(() => { mergeCustomItems(); const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
 })();
 </script>
 </body>
