@@ -132,22 +132,18 @@ textarea.notes{flex:1;min-width:240px;min-height:64px;border:1px solid var(--lin
 textarea.notes:focus,.search:focus,.sel:focus{outline:2px solid var(--brand-ring);border-color:var(--brand)}
 .saved{font-size:12px;color:var(--ok);opacity:0;transition:opacity .3s} .saved.on{opacity:1}
 
-/* inspiration (compact + collapsible) */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+/* inspiration (2-per-row clean grid) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 .site{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
 .site.pin{border:2px solid var(--brand)}
-.shot{display:block;aspect-ratio:16/7.5;max-height:110px;background:#1d1d1d;overflow:hidden;position:relative}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s}
+.shot{display:block;width:100%;aspect-ratio:16/10;background:#1d1d1d;overflow:hidden;position:relative}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
 .site:hover .shot img{transform:scale(1.03)}
-.site .body{padding:9px 12px 10px;display:flex;flex-direction:column;gap:4px;flex:1}
-.site h3{margin:0;font-size:14.5px;line-height:1.3;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.pinb{font-size:10.5px;font-weight:800;background:var(--brand);color:var(--on-brand);border-radius:999px;padding:1px 8px}
-.site p{margin:0;color:var(--ink2);font-size:12.5px;line-height:1.4;cursor:pointer}
-.site:not(.exp) p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.site .note{font-size:12px;color:var(--mute);line-height:1.35}
-.site:not(.exp) .note{display:none}
-.site .links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;font-weight:600;margin-top:auto;padding-top:2px}
-.fav{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;color:var(--ink2);margin-inline-start:auto}
+.site .body{padding:10px 11px 10px;display:flex;flex-direction:column;gap:6px;flex:1}
+.site h3{margin:0;font-size:13.5px;font-weight:700;line-height:1.3;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.pinb{font-size:10px;font-weight:800;background:var(--brand);color:var(--on-brand);border-radius:999px;padding:1px 7px}
+.site .links{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11.5px;font-weight:700;margin-top:auto;padding-top:4px}
+.fav{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:2px 8px;font-size:11px;font-weight:700;color:var(--ink2);margin-inline-start:auto}
 .fav[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
 .fav[aria-pressed=true]:hover{background:var(--brand-h);border-color:var(--brand-h)}
 .item h3 a{color:var(--ink)}
@@ -163,21 +159,21 @@ textarea.notes:focus,.search:focus,.sel:focus{outline:2px solid var(--brand-ring
 .item .wm{background:var(--brand-ll);border:1px solid var(--brand-l);border-radius:12px;padding:9px 12px;font-size:14px}
 .item .wm b{color:var(--brand-d)}
 .item .ft{display:flex;margin-top:10px}
-/* gtm (videos - compact + collapsible) */
-.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+
+/* gtm (2-per-row clean grid, title only) */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 .vid{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:border-color .15s}
 .vid:hover{border-color:#3A3A40} .vid.liked{border-color:rgba(22,196,127,.55)}
-.thumb{display:block;position:relative;aspect-ratio:16/7.5;max-height:110px;background:#1d1d1d;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.thumb{display:block;width:100%;position:relative;aspect-ratio:16/10;background:#141816;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .4s}
 .vid:hover .thumb img{transform:scale(1.03)} .vid:hover .thumb .play{opacity:1}
-.thumb .play{position:absolute;inset:0;margin:auto;width:38px;height:26px;border-radius:8px;background:rgba(22,196,127,.88);opacity:.85;transition:opacity .2s;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.45)}
-.thumb .play svg{width:17px;height:17px}
-.thumb .dur{position:absolute;bottom:6px;inset-inline-end:6px;background:rgba(0,0,0,.82);color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:1px 6px;direction:ltr}
-.thumb .appr{position:absolute;top:6px;inset-inline-start:6px;background:rgba(10,10,10,.82);color:var(--ink);border:1px solid rgba(255,255,255,.12);font-size:11px;font-weight:700;border-radius:999px;padding:1px 8px;backdrop-filter:blur(6px)}
-.vid .body{padding:9px 12px 10px;display:flex;flex-direction:column;gap:4px;flex:1}
-.vid .meta{display:flex;gap:6px;align-items:center;font-size:11.5px;color:var(--mute);flex-wrap:wrap}
-.vid .meta .s{font-weight:700;color:var(--brand-d);background:var(--brand-l);border-radius:6px;padding:1px 7px}
-.vid h3{margin:0;font-size:14px;line-height:1.32;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden} .vid h3 a{color:var(--ink)} .vid h3 a:hover{color:var(--brand-d)}
+.thumb .play{position:absolute;inset:0;margin:auto;width:34px;height:34px;border-radius:999px;background:rgba(22,196,127,.9);opacity:.92;transition:transform .2s,opacity .2s;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.thumb .play svg{width:15px;height:15px;margin-inline-start:1px}
+.thumb .dur{position:absolute;bottom:6px;inset-inline-end:6px;background:rgba(0,0,0,.82);color:#fff;font-size:10px;font-weight:700;border-radius:5px;padding:1.5px 6px;direction:ltr}
+.vid .body{padding:9px 10px 10px;display:flex;flex-direction:column;gap:5px;flex:1}
+.vid .meta{display:flex;gap:4px;align-items:center;font-size:10.5px;color:var(--mute);flex-wrap:wrap}
+.vid .meta .s{font-weight:700;color:var(--brand-d);background:var(--brand-l);border-radius:5px;padding:1px 6px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vid h3{margin:0;font-size:13px;font-weight:700;line-height:1.32;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden} .vid h3 a{color:var(--ink)} .vid h3 a:hover{color:var(--brand-d)}
 /* sitelog */
 .slstrip{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:18px 0 14px;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);font-size:13px;color:var(--ink2)}
 .slstrip b{color:var(--ink)} .slstrip .ok{color:var(--brand);font-weight:700} .slstrip .wait{color:#F5C451;font-weight:700}
@@ -274,12 +270,14 @@ html,body{overflow-x:hidden;max-width:100%}
   .cmail{padding:0 12px 8px;font-size:12px;gap:6px}
   .det{padding:12px}
   .dgrid{grid-template-columns:minmax(0,1fr);gap:10px}
-  .grid,.vgrid{grid-template-columns:minmax(0,1fr);gap:9px}
+  .grid,.vgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
   .item,.slv{padding:12px 14px}
-  .site .body,.vid .body{padding:8px 11px 9px;gap:4px}
-  .shot,.thumb{max-height:102px}
-  .site h3,.vid h3{font-size:14px}
-  .man{font-size:11px;padding:2px 8px}
+  .site .body,.vid .body{padding:8px 9px 9px;gap:5px}
+  .site h3,.vid h3{font-size:12.5px;line-height:1.28}
+  .vid .ft,.site .links{font-size:11px;gap:4px;padding-top:3px}
+  .like,.fav{padding:2px 7px;font-size:10.5px}
+  .delbtn{padding:3px 6px;font-size:11px}
+  .man{font-size:10px;padding:1.5px 6px}.vid .man,.site .man{font-size:9.5px;padding:1px 5px;box-shadow:none}
   .slstrip{padding:10px 12px;gap:6px 12px;font-size:12px}
   textarea.notes{min-width:0;width:100%;font-size:16px}
 }
@@ -352,6 +350,7 @@ img.av{object-fit:cover;display:block;border:1px solid rgba(22,196,127,.35)}
 .flt-drawer{display:none;margin-top:10px}
 .flt-drawer.open{display:block}
 
+#app{will-change:transform,opacity;transform:translate3d(0,0,0);backface-visibility:hidden;-webkit-backface-visibility:hidden;touch-action:pan-y}
 </style>
 </head>
 <body>
@@ -760,7 +759,7 @@ function mergeCustomItems(notifyNew = false) {
       const keyId = k + ':' + it.id;
       const isNewToDevice = !knownManualIds.has(keyId);
       knownManualIds.add(keyId);
-      if (notifyNew && initialMergeDone && isNewToDevice) {
+      if (notifyNew && initialMergeDone && isNewToDevice && (!getCurrentUser() || manBy(it) !== getCurrentUser())) {
         latestNewTab = k;
       }
       const u = (it.url || it.instagramUrl || '').replace(/\/?$/, '');
@@ -940,16 +939,13 @@ function viewInfluencers() {
 function viewInspiration() {
   const items = DATA.inspiration.filter(srcOk).sort((a, b) => (b.pinned - a.pinned) || b.dateAdded.localeCompare(a.dateAdded));
   const mine = items.filter(isManual), pinned = items.filter(i => i.pinned && !isManual(i)), rest = items.filter(i => !i.pinned && !isManual(i));
-  const card = i => { const fav = !!BampState.get('inspiration', i.id).fav, exp = !!(UI.exp && UI.exp[i.id]);
-    const hasMore = (i.whySpecial && i.whySpecial.length > 52) || !!i.note;
-    return `<article class="site ${i.pinned ? 'pin' : ''} ${exp ? 'exp' : ''} ${manCls(i)}" data-id="${esc(i.id)}">
-      <a class="shot" href="${esc(i.screenshotFull || i.screenshot || i.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(i.screenshot)}" alt="צילום מסך של ${esc(i.name)}"></a>
+  const card = i => { const fav = !!BampState.get('inspiration', i.id).fav;
+    return `<article class="site ${i.pinned ? 'pin' : ''} ${manCls(i)}" data-id="${esc(i.id)}">
+      <a class="shot" href="${esc(i.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(i.screenshot)}" alt="${esc(i.name)}"></a>
       <div class="body">
-        <h3>${esc(i.name)} ${manBadge(i)}${i.pinned ? '<span class="pinb">📌 מוביל</span>' : ''}<button class="fav" data-fav aria-pressed="${fav}">${fav ? '★ מועדף' : '☆ מועדף'}</button></h3>
-        <p data-more title="לחץ להרחבה">${esc(i.whySpecial)}</p>
-        ${i.note ? `<div class="note">${esc(i.note)}</div>` : ''}
-        ${i.video ? `<details class="vidbox"><summary>▶ צפייה בסרטון</summary><video controls playsinline preload="none" src="${esc(i.video)}"${i.videoPoster ? ` poster="${esc(i.videoPoster)}"` : ''}></video>${i.videoNote ? `<div class="note" style="margin-top:6px">${esc(i.videoNote)}</div>` : ''}</details>` : ''}
-        <div class="links">${link(i.url, 'לאתר ↗')} ${i.liveUrl ? link(i.liveUrl, 'חי ↗') : ''} ${hasMore ? `<button type="button" class="morebtn" data-more>${exp ? '▴ סגור' : '▾ פרטים'}</button>` : ''} <span class="src">${fmtDate(i.screenshotTaken || i.dateAdded)}</span><button type="button" class="delbtn" data-del="inspiration" title="מחק פריט">🗑️</button></div>
+        <div class="meta" style="display:flex;gap:4px;align-items:center;flex-wrap:wrap">${manBadge(i)}${i.pinned ? '<span class="pinb">📌 מוביל</span>' : ''}</div>
+        <h3><a href="${esc(i.url)}" target="_blank" rel="noopener" style="color:var(--ink)">${esc(i.name)}</a></h3>
+        <div class="links">${link(i.url, 'לאתר ↗')}<div style="display:inline-flex;align-items:center;gap:4px;margin-inline-start:auto"><button type="button" class="delbtn" data-del="inspiration" title="מחק פריט">🗑️</button><button class="fav" data-fav aria-pressed="${fav}">${fav ? '★' : '☆'}</button></div></div>
       </div></article>`; };
   const groups = groupBy(rest, i => i.dateAdded);
   return `${srcToggle('inspiration')}
@@ -998,32 +994,20 @@ function viewGtm() {
   const isIg = v => v.platform === 'instagram' || /instagram\.com\/(reel|p)\//.test(v.url || '');
   const nLiked = DATA.gtm.filter(liked).length;
   const list = DATA.gtm.filter(v => (UI.gtmf !== 'liked' || liked(v)) && srcOk(v));
-  const card = v => { const on = liked(v), ig = isIg(v), exp = !!(UI.exp && UI.exp[v.id]), watchLbl = ig ? 'לריל ↗' : 'ליוטיוב ↗';
-    const hasMore = (v.summary && v.summary.length > 52) || !!v.takeaway;
-    return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${exp ? 'exp' : ''} ${manCls(v)}" data-id="${esc(v.id)}">
-      <a class="thumb" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${ig ? 'צפייה באינסטגרם' : 'צפייה ביוטיוב'}: ${esc(v.title)}">
-        ${v.thumbnail ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph kloading">${K_LOADER_SVG}<span>טוען תמונה…</span></div>`}
-        <span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#04140D"><path d="M8 5v14l11-7z"/></svg></span>
+  const card = v => { const on = liked(v), ig = isIg(v), watchLbl = ig ? 'לריל ↗' : 'ליוטיוב ↗';
+    return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${manCls(v)}" data-id="${esc(v.id)}">
+      <a class="thumb" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(v.title)}">
+        ${v.thumbnail ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph kloading">${K_LOADER_SVG}<span>טוען…</span></div>`}
+        <span class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="#04140D"><path d="M8 5v14l11-7z"/></svg></span>
         ${v.duration ? `<span class="dur">${esc(v.duration)}</span>` : (ig ? `<span class="dur">Reel</span>` : '')}
-        ${v.approach ? `<span class="appr">${esc(v.approach)}</span>` : ''}
       </a>
       <div class="body">
-        <div class="meta"><span class="s">${ltr(v.channel)}</span>${v.publishDate ? `<span>${fmtDate(v.publishDate)}</span>` : ''}${manBadge(v)}</div>
+        <div class="meta"><span class="s">${ltr(v.channel)}</span>${manBadge(v)}</div>
         <h3>${link(v.url, `<bdi>${esc(v.title)}</bdi>`)}</h3>
-        ${v.speaker ? `<div class="spk"><bdi>${esc(v.speaker)}</bdi></div>` : ''}
-        ${v.summary ? `<p data-more title="לחץ להרחבה">${esc(v.summary)}</p>` : ''}
-        ${v.takeaway ? `<div class="wm"><b>מה לקחת ל-Klober:</b> ${esc(v.takeaway)}</div>` : ''}
-        <div class="ft">${link(v.url, watchLbl)}${hasMore ? `<button type="button" class="morebtn" data-more>${exp ? '▴ סגור' : '▾ פרטים'}</button>` : ''}<div style="display:inline-flex;align-items:center;gap:5px;margin-inline-start:auto"><button type="button" class="delbtn" data-del="gtm" title="מחק פריט">🗑️</button><button class="like" data-like aria-pressed="${on}" aria-label="${on ? 'הסר מהשמורים' : 'שמור (לייק)'}"><span class="h"><svg class="hrt" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 21.2s-7.6-4.7-10.1-9.6C.3 8.3 2.4 4.3 6.3 4.3c2.3 0 3.9 1.3 5.7 3.4 1.8-2.1 3.4-3.4 5.7-3.4 3.9 0 6 4 4.4 7.3-2.5 4.9-10.1 9.6-10.1 9.6z"/></svg></span>${on ? 'שמור' : 'לייק'}</button></div></div>
+        <div class="ft">${link(v.url, watchLbl)}<div style="display:inline-flex;align-items:center;gap:4px;margin-inline-start:auto"><button type="button" class="delbtn" data-del="gtm" title="מחק פריט">🗑️</button><button class="like" data-like aria-pressed="${on}" aria-label="${on ? 'הסר מהשמורים' : 'שמור (לייק)'}"><span class="h"><svg class="hrt" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 21.2s-7.6-4.7-10.1-9.6C.3 8.3 2.4 4.3 6.3 4.3c2.3 0 3.9 1.3 5.7 3.4 1.8-2.1 3.4-3.4 5.7-3.4 3.9 0 6 4 4.4 7.3-2.5 4.9-10.1 9.6-10.1 9.6z"/></svg></span>${on ? 'שמור' : 'לייק'}</button></div></div>
       </div></article>`; };
   const groups = groupBy(list.filter(v => !isManual(v)), v => v.dateAdded);
-  return `${srcToggle('gtm')}
-    <div class="filters">
-      <div class="chips" role="group" aria-label="סינון">
-        <button class="chip" data-f="gtmf" data-v="all" aria-pressed="${UI.gtmf !== 'liked'}">הכל · ${DATA.gtm.length}</button>
-        <button class="chip" data-f="gtmf" data-v="liked" aria-pressed="${UI.gtmf === 'liked'}">${HEART} שמורים בלבד · ${nLiked}</button>
-      </div>
-      <span class="count">${list.length} מתוך ${DATA.gtm.length}</span>
-    </div>
+  return `<div class="top-controls">${srcToggle('gtm')}<button class="chip" data-f="gtmf" data-v="${UI.gtmf === 'liked' ? 'all' : 'liked'}" aria-pressed="${UI.gtmf === 'liked'}" style="margin-inline-start:auto">${HEART} שמורים (${nLiked})</button></div>
     ${list.length ? manSection(list.filter(isManual), card, 'vgrid') + Object.keys(groups).sort().reverse().map(d => `<section class="group"><h2>נוסף ב-${fmtDate(d)} <span class="b">${groups[d].length}</span></h2>
       <div class="vgrid">${groups[d].map(card).join('')}</div></section>`).join('') : manOn() ? MAN_EMPTY : `<div class="empty">${UI.gtmf === 'liked' ? 'עדיין אין סרטונים שמורים — לחצו ' + HEART + ' על סרטון כדי לשמור אותו' : 'אין סרטונים עדיין'}</div>`}`;
 }
@@ -1035,9 +1019,40 @@ function render() {
 }
 
 /* ===================== events ===================== */
+let tabAnimTimer = null;
+function switchTabSmooth(nextTab, dirHint = 0) {
+  if (!TABS.includes(nextTab) || nextTab === UI.tab) return;
+  const oldIdx = TABS.indexOf(UI.tab);
+  const newIdx = TABS.indexOf(nextTab);
+  const dir = dirHint || (newIdx > oldIdx ? -1 : 1);
+  UI.tab = nextTab;
+  Prefs.set({ tab: UI.tab });
+  if (location.hash !== '#' + UI.tab) history.replaceState(null, '', '#' + UI.tab);
+  document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === UI.tab));
+  const app = $('#app');
+  if (!app) { render(); return; }
+  if (tabAnimTimer) clearTimeout(tabAnimTimer);
+  const outX = dir < 0 ? -52 : 52;
+  const inX = dir < 0 ? 52 : -52;
+  app.style.transition = 'transform 115ms cubic-bezier(0.4,0,1,1), opacity 110ms ease-out';
+  app.style.transform = `translate3d(${outX}px,0,0)`;
+  app.style.opacity = '0';
+  tabAnimTimer = setTimeout(() => {
+    if (window.scrollY > 70) window.scrollTo(0, 0);
+    render();
+    app.style.transition = 'none';
+    app.style.transform = `translate3d(${inX}px,0,0)`;
+    app.style.opacity = '0';
+    void app.offsetWidth;
+    app.style.transition = 'transform 210ms cubic-bezier(0.22,1,0.36,1), opacity 180ms ease-out';
+    app.style.transform = 'translate3d(0,0,0)';
+    app.style.opacity = '1';
+  }, 115);
+}
 document.querySelector('nav.tabs').addEventListener('click', e => {
   const b = e.target.closest('button[data-tab]'); if (!b) return;
-  UI.tab = b.dataset.tab; Prefs.set({ tab: UI.tab }); if (location.hash !== '#' + UI.tab) history.replaceState(null, '', '#' + UI.tab);
+  switchTabSmooth(b.dataset.tab);
+}); if (location.hash !== '#' + UI.tab) history.replaceState(null, '', '#' + UI.tab);
   render(); window.scrollTo({ top: 0 });
 });
 $('#app').addEventListener('click', e => {
@@ -1421,40 +1436,85 @@ function notifyPartnerPush(by, tab, id) {
     });
   }
 
-  // Swipe left / right to switch tabs (RTL order: influencers [0] -> inspiration [1] -> news [2] -> gtm [3] -> sitelog [4])
-  // Swiping left (dx < -60) moves from influencers (0) to inspiration (1), etc.
-  // Swiping right (dx > 60) moves back.
-  let sx = 0, sy = 0, st = 0, swipeIgnore = false;
+  // Smooth interactive Swipe left / right to switch tabs
+  let sx = 0, sy = 0, st = 0, lock = '', dragging = false;
+  const appEl = document.getElementById('app');
+
   document.addEventListener("touchstart", e => {
-    if (!e.touches || e.touches.length !== 1) { swipeIgnore = true; return; }
+    if (!e.touches || e.touches.length !== 1) { lock = 'ignore'; return; }
     const tgt = e.target;
-    if (tgt && tgt.closest && tgt.closest("input, textarea, select, video, .ob-bg.open, .shmodal-bg.open")) {
-      swipeIgnore = true;
+    if (tgt && tgt.closest && tgt.closest("input, textarea, select, video, nav.tabs, .ob-bg.open")) {
+      lock = 'ignore';
       return;
     }
-    swipeIgnore = false;
+    lock = '';
+    dragging = false;
     sx = e.touches[0].clientX;
     sy = e.touches[0].clientY;
     st = Date.now();
   }, { passive: true });
 
+  document.addEventListener("touchmove", e => {
+    if (lock === 'ignore' || lock === 'v' || !e.touches || e.touches.length !== 1) return;
+    const dx = e.touches[0].clientX - sx;
+    const dy = e.touches[0].clientY - sy;
+    if (!lock) {
+      if (Math.abs(dy) > 10 && Math.abs(dy) >= Math.abs(dx) * 0.95) {
+        lock = 'v';
+        return;
+      }
+      if (Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dy) * 1.35) {
+        lock = 'h';
+        dragging = true;
+        if (appEl) appEl.style.transition = 'none';
+      } else {
+        return;
+      }
+    }
+    if (lock === 'h' && appEl) {
+      const curIdx = TABS.indexOf(UI.tab);
+      const atEdge = (dx < 0 && curIdx >= TABS.length - 1) || (dx > 0 && curIdx <= 0);
+      const shift = dx * (atEdge ? 0.12 : 0.36);
+      const op = Math.max(0.74, 1 - Math.abs(dx) / 480);
+      appEl.style.transform = `translate3d(${shift.toFixed(1)}px,0,0)`;
+      appEl.style.opacity = op.toFixed(2);
+    }
+  }, { passive: true });
+
+  const resetDrag = () => {
+    if (!appEl) return;
+    appEl.style.transition = 'transform 190ms cubic-bezier(0.22,1,0.36,1), opacity 170ms ease-out';
+    appEl.style.transform = 'translate3d(0,0,0)';
+    appEl.style.opacity = '1';
+  };
+
+  document.addEventListener("touchcancel", () => {
+    if (dragging) resetDrag();
+    lock = 'ignore';
+    dragging = false;
+  }, { passive: true });
+
   document.addEventListener("touchend", e => {
-    if (swipeIgnore || !e.changedTouches || !e.changedTouches.length) return;
+    if (lock === 'ignore' || lock === 'v' || !e.changedTouches || !e.changedTouches.length) return;
     const dx = e.changedTouches[0].clientX - sx;
     const dy = e.changedTouches[0].clientY - sy;
-    const dt = Date.now() - st;
-    if (dt > 650 || Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    const dt = Math.max(1, Date.now() - st);
+    const vel = Math.abs(dx) / dt;
+    const shouldSwitch = lock === 'h' && (Math.abs(dx) >= 52 || (vel > 0.38 && Math.abs(dx) >= 30)) && Math.abs(dx) > Math.abs(dy) * 1.25;
+    if (!shouldSwitch) {
+      if (dragging) resetDrag();
+      dragging = false;
+      return;
+    }
     const curIdx = TABS.indexOf(UI.tab);
-    if (curIdx === -1) return;
     const nextIdx = dx < 0 ? curIdx + 1 : curIdx - 1;
-    if (nextIdx < 0 || nextIdx >= TABS.length) return;
-    UI.tab = TABS[nextIdx];
-    Prefs.set({ tab: UI.tab });
-    if (location.hash !== '#' + UI.tab) history.replaceState(null, '', '#' + UI.tab);
-    render();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    const activeBtn = document.querySelector(`nav.tabs button[data-tab="${UI.tab}"]`);
-    if (activeBtn && activeBtn.scrollIntoView) activeBtn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    if (nextIdx < 0 || nextIdx >= TABS.length) {
+      resetDrag();
+      dragging = false;
+      return;
+    }
+    dragging = false;
+    switchTabSmooth(TABS[nextIdx], dx < 0 ? -1 : 1);
   }, { passive: true });
 })();
 </script>
