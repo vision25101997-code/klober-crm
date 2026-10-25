@@ -132,20 +132,22 @@ textarea.notes{flex:1;min-width:240px;min-height:64px;border:1px solid var(--lin
 textarea.notes:focus,.search:focus,.sel:focus{outline:2px solid var(--brand-ring);border-color:var(--brand)}
 .saved{font-size:12px;color:var(--ok);opacity:0;transition:opacity .3s} .saved.on{opacity:1}
 
-/* inspiration */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
-.site{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
-.site.pin{grid-column:1/-1;display:grid;grid-template-columns:1.35fr 1fr;border:2px solid var(--brand)}
-.shot{display:block;aspect-ratio:16/10;background:#1d1d1d;overflow:hidden;position:relative}
+/* inspiration (compact + collapsible) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.site{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
+.site.pin{border:2px solid var(--brand)}
+.shot{display:block;aspect-ratio:16/7.5;max-height:110px;background:#1d1d1d;overflow:hidden;position:relative}
 .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s}
 .site:hover .shot img{transform:scale(1.03)}
-.site .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.site h3{margin:0;font-size:18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.pinb{font-size:11px;font-weight:800;background:var(--brand);color:var(--on-brand);border-radius:999px;padding:2px 9px}
-.site p{margin:0;color:var(--ink2);font-size:14px}
-.site .note{font-size:12px;color:var(--mute)}
-.site .links{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:600;margin-top:auto}
-.fav{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:700;color:var(--ink2);margin-inline-start:auto}
+.site .body{padding:9px 12px 10px;display:flex;flex-direction:column;gap:4px;flex:1}
+.site h3{margin:0;font-size:14.5px;line-height:1.3;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.pinb{font-size:10.5px;font-weight:800;background:var(--brand);color:var(--on-brand);border-radius:999px;padding:1px 8px}
+.site p{margin:0;color:var(--ink2);font-size:12.5px;line-height:1.4;cursor:pointer}
+.site:not(.exp) p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site .note{font-size:12px;color:var(--mute);line-height:1.35}
+.site:not(.exp) .note{display:none}
+.site .links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;font-weight:600;margin-top:auto;padding-top:2px}
+.fav{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;color:var(--ink2);margin-inline-start:auto}
 .fav[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
 .fav[aria-pressed=true]:hover{background:var(--brand-h);border-color:var(--brand-h)}
 .item h3 a{color:var(--ink)}
@@ -161,20 +163,21 @@ textarea.notes:focus,.search:focus,.sel:focus{outline:2px solid var(--brand-ring
 .item .wm{background:var(--brand-ll);border:1px solid var(--brand-l);border-radius:12px;padding:9px 12px;font-size:14px}
 .item .wm b{color:var(--brand-d)}
 .item .ft{display:flex;margin-top:10px}
-/* gtm (videos) */
-.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
-.vid{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:border-color .15s}
+/* gtm (videos - compact + collapsible) */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.vid{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:border-color .15s}
 .vid:hover{border-color:#3A3A40} .vid.liked{border-color:rgba(22,196,127,.55)}
-.thumb{display:block;position:relative;aspect-ratio:16/9;background:#1d1d1d;overflow:hidden}
+.thumb{display:block;position:relative;aspect-ratio:16/7.5;max-height:110px;background:#1d1d1d;overflow:hidden}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .vid:hover .thumb img{transform:scale(1.03)} .vid:hover .thumb .play{opacity:1}
-.thumb .play{position:absolute;inset:0;margin:auto;width:50px;height:34px;border-radius:10px;background:rgba(22,196,127,.88);opacity:.85;transition:opacity .2s;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.45)}
-.thumb .dur{position:absolute;bottom:8px;inset-inline-end:8px;background:rgba(0,0,0,.82);color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;direction:ltr}
-.thumb .appr{position:absolute;top:10px;inset-inline-start:10px;background:rgba(10,10,10,.82);color:var(--ink);border:1px solid rgba(255,255,255,.12);font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;backdrop-filter:blur(6px)}
-.vid .body{padding:14px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.vid .meta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--mute);flex-wrap:wrap}
-.vid .meta .s{font-weight:700;color:var(--brand-d);background:var(--brand-l);border-radius:6px;padding:1px 8px}
-.vid h3{margin:0;font-size:16px;line-height:1.4} .vid h3 a{color:var(--ink)} .vid h3 a:hover{color:var(--brand-d)}
+.thumb .play{position:absolute;inset:0;margin:auto;width:38px;height:26px;border-radius:8px;background:rgba(22,196,127,.88);opacity:.85;transition:opacity .2s;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+.thumb .play svg{width:17px;height:17px}
+.thumb .dur{position:absolute;bottom:6px;inset-inline-end:6px;background:rgba(0,0,0,.82);color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:1px 6px;direction:ltr}
+.thumb .appr{position:absolute;top:6px;inset-inline-start:6px;background:rgba(10,10,10,.82);color:var(--ink);border:1px solid rgba(255,255,255,.12);font-size:11px;font-weight:700;border-radius:999px;padding:1px 8px;backdrop-filter:blur(6px)}
+.vid .body{padding:9px 12px 10px;display:flex;flex-direction:column;gap:4px;flex:1}
+.vid .meta{display:flex;gap:6px;align-items:center;font-size:11.5px;color:var(--mute);flex-wrap:wrap}
+.vid .meta .s{font-weight:700;color:var(--brand-d);background:var(--brand-l);border-radius:6px;padding:1px 7px}
+.vid h3{margin:0;font-size:14px;line-height:1.32;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden} .vid h3 a{color:var(--ink)} .vid h3 a:hover{color:var(--brand-d)}
 /* sitelog */
 .slstrip{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:18px 0 14px;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);font-size:13px;color:var(--ink2)}
 .slstrip b{color:var(--ink)} .slstrip .ok{color:var(--brand);font-weight:700} .slstrip .wait{color:#F5C451;font-weight:700}
@@ -190,12 +193,19 @@ textarea.notes:focus,.search:focus,.sel:focus{outline:2px solid var(--brand-ring
 .slv .ft{font-size:13px;font-weight:600}
 .slhow{margin-top:18px;background:var(--brand-ll);border:1px solid var(--brand-l);border-radius:12px;padding:12px 16px;font-size:14px;color:var(--ink2)}
 .slhow b{color:var(--brand-d)} .slhow ol{margin:6px 0 0;padding-inline-start:20px}
-.vid .spk{font-size:12px;color:var(--mute);margin-top:-4px}
-.vid p{margin:0;color:var(--ink2);font-size:14px}
-.vid .wm{background:var(--brand-ll);border:1px solid var(--brand-l);border-radius:12px;padding:9px 12px;font-size:14px}
+.vid .spk{font-size:11.5px;color:var(--mute);margin-top:-2px}
+.vid p{margin:0;color:var(--ink2);font-size:12.5px;line-height:1.4;cursor:pointer}
+.vid:not(.exp) p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vid .wm{background:var(--brand-ll);border:1px solid var(--brand-l);border-radius:9px;padding:6px 10px;font-size:12.5px;line-height:1.4}
+.vid:not(.exp) .wm{display:none}
 .vid .wm b{color:var(--brand-d)}
-.vid .ft{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:4px;font-size:13px;font-weight:600}
-.like{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;color:var(--ink2);margin-inline-start:auto;display:inline-flex;align-items:center;gap:6px}
+.vid .ft{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:2px;font-size:12px;font-weight:600}
+.morebtn{border:1px solid rgba(22,196,127,.28);background:rgba(22,196,127,.08);color:var(--brand-d);border-radius:999px;padding:2px 8px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.15s}
+.morebtn:hover{background:rgba(22,196,127,.18);border-color:var(--brand)}
+.pushbell{border:1px solid rgba(22,196,127,.35);background:rgba(22,196,127,.1);color:#A7F3D0;border-radius:999px;padding:4px 9px;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;cursor:pointer;transition:.15s}
+.pushbell:hover{border-color:#16C47F;color:#fff}
+.pushbell.on{background:rgba(22,196,127,.22);border-color:#16C47F;color:#fff}
+.like{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:700;color:var(--ink2);margin-inline-start:auto;display:inline-flex;align-items:center;gap:5px}
 .like .h{font-size:15px;line-height:1;color:var(--mute);display:inline-flex}
 .hrt{display:inline-block;vertical-align:-.12em;color:var(--brand)}
 .like .h .hrt{color:inherit}
@@ -264,9 +274,11 @@ html,body{overflow-x:hidden;max-width:100%}
   .cmail{padding:0 12px 8px;font-size:12px;gap:6px}
   .det{padding:12px}
   .dgrid{grid-template-columns:minmax(0,1fr);gap:10px}
-  .grid,.vgrid{grid-template-columns:minmax(0,1fr);gap:14px}
-  .site .body,.vid .body,.item,.slv{padding:12px 14px}
-  .site h3{font-size:16px}
+  .grid,.vgrid{grid-template-columns:minmax(0,1fr);gap:9px}
+  .item,.slv{padding:12px 14px}
+  .site .body,.vid .body{padding:8px 11px 9px;gap:4px}
+  .shot,.thumb{max-height:102px}
+  .site h3,.vid h3{font-size:14px}
   .man{font-size:11px;padding:2px 8px}
   .slstrip{padding:10px 12px;gap:6px 12px;font-size:12px}
   textarea.notes{min-width:0;width:100%;font-size:16px}
@@ -382,8 +394,9 @@ img.av{object-fit:cover;display:block;border:1px solid rgba(22,196,127,.35)}
         </div>
       </div>
       <div class="ob-step">
-        <div class="ob-step-top"><span class="ob-num">2</span><span>הפוך לאפליקציה במסך הבית</span></div>
-        <p>לחץ על כפתור השיתוף <b>⬆️ Share</b> בתחתית הדפדפן ובחר <b>״הוסף למסך הבית״ (Add to Home Screen)</b> כדי ש-Klober תיפתח כאפליקציה מלאה.</p>
+        <div class="ob-step-top"><span class="ob-num">2</span><span>הפוך לאפליקציה והפעל פוש</span></div>
+        <p>לחץ על כפתור השיתוף <b>⬆️ Share</b> בתחתית הדפדפן ובחר <b>״הוסף למסך הבית״ (Add to Home Screen)</b>, ואז הפעל התראות קצרות (״פוסט״ / ״משפיען״):</p>
+        <button type="button" class="ob-btn" id="btn-enable-push" style="margin-top:4px;background:#16221C;color:#16C47F;border:1px solid rgba(22,196,127,.45)">🔔 הפעל התראות פוש במכשיר</button>
       </div>
       <div class="ob-step">
         <div class="ob-step-top"><span class="ob-num">3</span><span>שיתוף ישיר של פוסטים וחשבונות משפיענים</span></div>
@@ -567,6 +580,9 @@ function setCurrentUser(u, silent = false) {
     if (curMap[item.id]) { curMap[item.id].uploadedBy = clean; BampState.set('custom', tab, curMap); }
     lastUploadedRef = null;
   }
+  if (typeof Notification !== 'undefined' && Notification.permission === 'granted' && typeof enablePushNotifications === 'function') {
+    enablePushNotifications(true);
+  }
   render();
   if (!silent) showToast('👤 מחובר בתור ' + clean);
 }
@@ -730,11 +746,23 @@ async function enrichCustomItem(tab, it, withOverlay = false) {
     render();
   }
 }
-function mergeCustomItems() {
+const knownManualIds = new Set();
+let initialMergeDone = false;
+function shortPushLabel(tab) {
+  return tab === 'influencers' ? 'משפיען' : tab === 'gtm' ? 'פוסט' : tab === 'inspiration' ? 'השראה' : 'כתבה';
+}
+function mergeCustomItems(notifyNew = false) {
+  let latestNewTab = '';
   for (const k of ['gtm', 'influencers', 'inspiration', 'news']) {
     const customMap = BampState.get('custom', k) || {};
     const items = Object.values(customMap).filter(x => x && x.id && !isDeleted(k, x.id));
     for (const it of items) {
+      const keyId = k + ':' + it.id;
+      const isNewToDevice = !knownManualIds.has(keyId);
+      knownManualIds.add(keyId);
+      if (notifyNew && initialMergeDone && isNewToDevice) {
+        latestNewTab = k;
+      }
       const u = (it.url || it.instagramUrl || '').replace(/\/?$/, '');
       const idx = DATA[k].findIndex(x => x.id === it.id || (u && (x.url || x.instagramUrl || '').replace(/\/?$/, '') === u));
       if (idx === -1) {
@@ -749,6 +777,10 @@ function mergeCustomItems() {
     DATA[k] = (DATA[k] || []).filter(x => x && !isDeleted(k, x.id));
     const nEl = $('#n-' + k);
     if (nEl) nEl.textContent = DATA[k].length;
+  }
+  initialMergeDone = true;
+  if (latestNewTab) {
+    showToast('🔔 ' + shortPushLabel(latestNewTab));
   }
 }
 async function loadData() {
@@ -908,19 +940,20 @@ function viewInfluencers() {
 function viewInspiration() {
   const items = DATA.inspiration.filter(srcOk).sort((a, b) => (b.pinned - a.pinned) || b.dateAdded.localeCompare(a.dateAdded));
   const mine = items.filter(isManual), pinned = items.filter(i => i.pinned && !isManual(i)), rest = items.filter(i => !i.pinned && !isManual(i));
-  const card = i => { const fav = !!BampState.get('inspiration', i.id).fav;
-    return `<article class="site ${i.pinned ? 'pin' : ''} ${manCls(i)}" data-id="${esc(i.id)}">
-      <a class="shot" href="${esc(i.screenshotFull || i.screenshot)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(i.screenshot)}" alt="צילום מסך של ${esc(i.name)}"></a>
+  const card = i => { const fav = !!BampState.get('inspiration', i.id).fav, exp = !!(UI.exp && UI.exp[i.id]);
+    const hasMore = (i.whySpecial && i.whySpecial.length > 52) || !!i.note;
+    return `<article class="site ${i.pinned ? 'pin' : ''} ${exp ? 'exp' : ''} ${manCls(i)}" data-id="${esc(i.id)}">
+      <a class="shot" href="${esc(i.screenshotFull || i.screenshot || i.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(i.screenshot)}" alt="צילום מסך של ${esc(i.name)}"></a>
       <div class="body">
-        <h3>${esc(i.name)} ${manBadge(i)}${i.pinned ? '<span class="pinb">📌 רפרנס מוביל</span>' : ''}<button class="fav" data-fav aria-pressed="${fav}">${fav ? '★ מועדף' : '☆ מועדף'}</button></h3>
-        <p>${esc(i.whySpecial)}</p>
+        <h3>${esc(i.name)} ${manBadge(i)}${i.pinned ? '<span class="pinb">📌 מוביל</span>' : ''}<button class="fav" data-fav aria-pressed="${fav}">${fav ? '★ מועדף' : '☆ מועדף'}</button></h3>
+        <p data-more title="לחץ להרחבה">${esc(i.whySpecial)}</p>
         ${i.note ? `<div class="note">${esc(i.note)}</div>` : ''}
         ${i.video ? `<details class="vidbox"><summary>▶ צפייה בסרטון</summary><video controls playsinline preload="none" src="${esc(i.video)}"${i.videoPoster ? ` poster="${esc(i.videoPoster)}"` : ''}></video>${i.videoNote ? `<div class="note" style="margin-top:6px">${esc(i.videoNote)}</div>` : ''}</details>` : ''}
-        <div class="links">${link(i.url, 'לאתר ↗')} ${i.liveUrl ? link(i.liveUrl, 'כתובת חיה ↗') : ''} ${i.screenshotFull ? link(i.screenshotFull, 'צילום מסך מלא') : ''} <span class="src">צולם ${fmtDate(i.screenshotTaken || i.dateAdded)}</span><button type="button" class="delbtn" data-del="inspiration" title="מחק פריט">🗑️ מחק</button></div>
+        <div class="links">${link(i.url, 'לאתר ↗')} ${i.liveUrl ? link(i.liveUrl, 'חי ↗') : ''} ${hasMore ? `<button type="button" class="morebtn" data-more>${exp ? '▴ סגור' : '▾ פרטים'}</button>` : ''} <span class="src">${fmtDate(i.screenshotTaken || i.dateAdded)}</span><button type="button" class="delbtn" data-del="inspiration" title="מחק פריט">🗑️</button></div>
       </div></article>`; };
   const groups = groupBy(rest, i => i.dateAdded);
   return `${srcToggle('inspiration')}
-    ${items.length ? `${manSection(mine, card, 'grid')}<div class="grid" style="margin-top:18px">${pinned.map(card).join('')}</div>
+    ${items.length ? `${manSection(mine, card, 'grid')}<div class="grid" style="margin-top:12px">${pinned.map(card).join('')}</div>
     ${Object.keys(groups).sort().reverse().map(d => `<section class="group"><h2>${fmtDate(d)} <span class="b">${groups[d].length}</span></h2><div class="grid">${groups[d].map(card).join('')}</div></section>`).join('')}` : (manOn() ? MAN_EMPTY : '<div class="empty">אין השראה עדיין</div>')}`;
 }
 
@@ -965,21 +998,22 @@ function viewGtm() {
   const isIg = v => v.platform === 'instagram' || /instagram\.com\/(reel|p)\//.test(v.url || '');
   const nLiked = DATA.gtm.filter(liked).length;
   const list = DATA.gtm.filter(v => (UI.gtmf !== 'liked' || liked(v)) && srcOk(v));
-  const card = v => { const on = liked(v), ig = isIg(v), watchLbl = ig ? 'לצפייה בריל באינסטגרם ↗' : 'לצפייה ביוטיוב ↗';
-    return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${manCls(v)}" data-id="${esc(v.id)}">
+  const card = v => { const on = liked(v), ig = isIg(v), exp = !!(UI.exp && UI.exp[v.id]), watchLbl = ig ? 'לריל ↗' : 'ליוטיוב ↗';
+    const hasMore = (v.summary && v.summary.length > 52) || !!v.takeaway;
+    return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${exp ? 'exp' : ''} ${manCls(v)}" data-id="${esc(v.id)}">
       <a class="thumb" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${ig ? 'צפייה באינסטגרם' : 'צפייה ביוטיוב'}: ${esc(v.title)}">
         ${v.thumbnail ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph kloading">${K_LOADER_SVG}<span>טוען תמונה…</span></div>`}
-        <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#04140D"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#04140D"><path d="M8 5v14l11-7z"/></svg></span>
         ${v.duration ? `<span class="dur">${esc(v.duration)}</span>` : (ig ? `<span class="dur">Reel</span>` : '')}
         ${v.approach ? `<span class="appr">${esc(v.approach)}</span>` : ''}
       </a>
       <div class="body">
-        <div class="meta"><span class="s">${ltr(v.channel)}</span>${v.publishDate ? `<span>פורסם ${fmtDate(v.publishDate)}</span>` : ''}${manBadge(v)}</div>
+        <div class="meta"><span class="s">${ltr(v.channel)}</span>${v.publishDate ? `<span>${fmtDate(v.publishDate)}</span>` : ''}${manBadge(v)}</div>
         <h3>${link(v.url, `<bdi>${esc(v.title)}</bdi>`)}</h3>
         ${v.speaker ? `<div class="spk"><bdi>${esc(v.speaker)}</bdi></div>` : ''}
-        ${v.summary ? `<p>${esc(v.summary)}</p>` : ''}
+        ${v.summary ? `<p data-more title="לחץ להרחבה">${esc(v.summary)}</p>` : ''}
         ${v.takeaway ? `<div class="wm"><b>מה לקחת ל-Klober:</b> ${esc(v.takeaway)}</div>` : ''}
-        <div class="ft">${link(v.url, watchLbl)}<div style="display:inline-flex;align-items:center;gap:6px"><button type="button" class="delbtn" data-del="gtm" title="מחק פריט">🗑️ מחק</button><button class="like" data-like aria-pressed="${on}" aria-label="${on ? 'הסר מהשמורים' : 'שמור (לייק)'}"><span class="h"><svg class="hrt" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 21.2s-7.6-4.7-10.1-9.6C.3 8.3 2.4 4.3 6.3 4.3c2.3 0 3.9 1.3 5.7 3.4 1.8-2.1 3.4-3.4 5.7-3.4 3.9 0 6 4 4.4 7.3-2.5 4.9-10.1 9.6-10.1 9.6z"/></svg></span>${on ? 'שמור' : 'לייק'}</button></div></div>
+        <div class="ft">${link(v.url, watchLbl)}${hasMore ? `<button type="button" class="morebtn" data-more>${exp ? '▴ סגור' : '▾ פרטים'}</button>` : ''}<div style="display:inline-flex;align-items:center;gap:5px;margin-inline-start:auto"><button type="button" class="delbtn" data-del="gtm" title="מחק פריט">🗑️</button><button class="like" data-like aria-pressed="${on}" aria-label="${on ? 'הסר מהשמורים' : 'שמור (לייק)'}"><span class="h"><svg class="hrt" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 21.2s-7.6-4.7-10.1-9.6C.3 8.3 2.4 4.3 6.3 4.3c2.3 0 3.9 1.3 5.7 3.4 1.8-2.1 3.4-3.4 5.7-3.4 3.9 0 6 4 4.4 7.3-2.5 4.9-10.1 9.6-10.1 9.6z"/></svg></span>${on ? 'שמור' : 'לייק'}</button></div></div>
       </div></article>`; };
   const groups = groupBy(list.filter(v => !isManual(v)), v => v.dateAdded);
   return `${srcToggle('gtm')}
@@ -1025,6 +1059,19 @@ $('#app').addEventListener('click', e => {
     BampState.set(kind, card.dataset.id, { fav: !cur }); render(); return; }
   const del = e.target.closest('[data-del]');
   if (del) { e.stopPropagation(); const card = del.closest('[data-id]'); if (card) deleteItem(del.dataset.del || UI.tab, card.dataset.id); return; }
+  const more = e.target.closest('[data-more]');
+  if (more) {
+    const card = more.closest('[data-id]');
+    if (card) {
+      const id = card.dataset.id;
+      UI.exp = UI.exp || {};
+      UI.exp[id] = !UI.exp[id];
+      card.classList.toggle('exp', !!UI.exp[id]);
+      const btn = card.querySelector('button.morebtn');
+      if (btn) btn.textContent = UI.exp[id] ? '▴ סגור' : '▾ פרטים';
+    }
+    return;
+  }
   const like = e.target.closest('[data-like]');
   if (like) { const id = like.closest('[data-id]').dataset.id; const cur = !!BampState.get('gtm', id).like;
     BampState.set('gtm', id, { like: !cur }); render(); }
@@ -1217,9 +1264,79 @@ function saveSharedItem(rawInput, titleIn = '', noteIn = '', explicitTab = '', b
   const nEl = $('#n-' + tab);
   if (nEl) nEl.textContent = DATA[tab].length;
   try { localStorage.setItem(OB_DONE_KEY, "1"); } catch (e) {}
+  knownManualIds.add(tab + ':' + item.id);
   render();
   enrichCustomItem(tab, item, true);
+  notifyPartnerPush(uploader, tab, item.id);
   return item;
+}
+
+const PUSH_API_URL = 'https://voipho-klober-crm.netlify.app/bamp/api/push';
+const VAPID_PUBLIC_KEY = 'BG1FAGowfWkAfyNXoJy2xumcWosFyh4PMuVTbTPQo4evWUgAoMXMldpuIvmlM9hVBJmEcd4FrUy6Is5cKvR-w54';
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const rawData = atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+  for (let i = 0; i < rawData.length; ++i) outputArray[i] = rawData.charCodeAt(i);
+  return outputArray;
+}
+function updatePushBellUi() {
+  const bell = document.getElementById('push-bell');
+  const obBtn = document.getElementById('btn-enable-push');
+  const granted = typeof Notification !== 'undefined' && Notification.permission === 'granted';
+  if (bell) {
+    bell.classList.toggle('on', granted);
+    bell.textContent = granted ? '🔔 פוש פעיל' : '🔔 פוש';
+  }
+  if (obBtn && granted) {
+    obBtn.textContent = '✓ התראות פוש פעילות במכשיר';
+  }
+}
+async function enablePushNotifications(silent = false) {
+  try {
+    if (!('Notification' in window) || !('serviceWorker' in navigator) || !('PushManager' in window)) {
+      if (!silent) showToast('📲 באייפון: הוסף למסך הבית ואז לחץ 🔔 פוש');
+      return false;
+    }
+    const perm = Notification.permission === 'granted' ? 'granted' : await Notification.requestPermission();
+    updatePushBellUi();
+    if (perm !== 'granted') {
+      if (!silent) showToast('⚠️ יש לאשר התראות בהגדרות הדפדפן');
+      return false;
+    }
+    const reg = await navigator.serviceWorker.register('sw.js');
+    await navigator.serviceWorker.ready;
+    let sub = await reg.pushManager.getSubscription();
+    if (!sub) {
+      sub = await reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+      });
+    }
+    const user = getCurrentUser() || 'בר';
+    await fetch(PUSH_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'subscribe', user, subscription: sub })
+    });
+    updatePushBellUi();
+    if (!silent) showToast('🔔 התראות פוש הופעלו (' + user + ')!');
+    return true;
+  } catch (e) {
+    if (!silent) showToast('📲 באייפון: פתח מהאייקון במסך הבית ולחץ 🔔 פוש');
+    return false;
+  }
+}
+function notifyPartnerPush(by, tab, id) {
+  try {
+    fetch(PUSH_API_URL, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'notify', by: by || getCurrentUser() || 'בר', tab, id })
+    }).catch(() => {});
+  } catch (e) {}
 }
 
 
@@ -1242,22 +1359,45 @@ function saveSharedItem(rawInput, titleIn = '', noteIn = '', explicitTab = '', b
   } else {
     render();
   }
-  BampState.onChange(() => { mergeCustomItems(); const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
+  BampState.onChange(() => { mergeCustomItems(true); const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(() => {
+      updatePushBellUi();
+      if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+        enablePushNotifications(true);
+      }
+    }).catch(() => {});
+    navigator.serviceWorker.addEventListener('message', e => {
+      if (e.data && e.data.type === 'KLOBER_OPEN_TAB' && TABS.includes(e.data.tab)) {
+        UI.tab = e.data.tab;
+        Prefs.set({ tab: UI.tab });
+        history.replaceState(null, '', '#' + UI.tab);
+        BampState.pull();
+        render();
+      }
+    });
+  }
 })();
 
-// First-time onboarding flow (opens ONLY once on initial entry, never during shares/uploads)
+// First-time onboarding flow + Push Notification buttons + Swipe Left/Right section navigation
 (() => {
   const obBg = document.getElementById("ob-bg");
   const obClose = document.getElementById("ob-close");
+  const btnEnablePush = document.getElementById("btn-enable-push");
+  const pushBell = document.getElementById("push-bell");
   const OB_KEY = "klober-onboarded-v1";
   const rawHref = location.href;
   const qsOb = new URLSearchParams(location.search);
   const isAddFlow = qsOb.has("add") || qsOb.has("url") || qsOb.has("text") || /[?&](add|url|text)=/i.test(rawHref);
   const forceOb = qsOb.has("welcome");
   syncUserUi();
+  updatePushBellUi();
+  if (btnEnablePush) btnEnablePush.addEventListener("click", () => enablePushNotifications(false));
+  if (pushBell) pushBell.addEventListener("click", () => enablePushNotifications(false));
   document.querySelectorAll("[data-pick-user]").forEach(btn => {
     btn.addEventListener("click", () => {
       setCurrentUser(btn.dataset.pickUser);
+      enablePushNotifications(true);
     });
   });
   if (obBg) {
@@ -1273,12 +1413,49 @@ function saveSharedItem(rawInput, titleIn = '', noteIn = '', explicitTab = '', b
       if (!getCurrentUser()) setCurrentUser("בר", true);
       try { localStorage.setItem(OB_KEY, "1"); } catch (e) {}
       obBg.classList.remove("open");
+      enablePushNotifications(true);
     };
     if (obClose) obClose.addEventListener("click", finishOb);
     obBg.addEventListener("click", (e) => {
       if (e.target === obBg) finishOb();
     });
   }
+
+  // Swipe left / right to switch tabs (RTL order: influencers [0] -> inspiration [1] -> news [2] -> gtm [3] -> sitelog [4])
+  // Swiping left (dx < -60) moves from influencers (0) to inspiration (1), etc.
+  // Swiping right (dx > 60) moves back.
+  let sx = 0, sy = 0, st = 0, swipeIgnore = false;
+  document.addEventListener("touchstart", e => {
+    if (!e.touches || e.touches.length !== 1) { swipeIgnore = true; return; }
+    const tgt = e.target;
+    if (tgt && tgt.closest && tgt.closest("input, textarea, select, video, .ob-bg.open, .shmodal-bg.open")) {
+      swipeIgnore = true;
+      return;
+    }
+    swipeIgnore = false;
+    sx = e.touches[0].clientX;
+    sy = e.touches[0].clientY;
+    st = Date.now();
+  }, { passive: true });
+
+  document.addEventListener("touchend", e => {
+    if (swipeIgnore || !e.changedTouches || !e.changedTouches.length) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    const dt = Date.now() - st;
+    if (dt > 650 || Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    const curIdx = TABS.indexOf(UI.tab);
+    if (curIdx === -1) return;
+    const nextIdx = dx < 0 ? curIdx + 1 : curIdx - 1;
+    if (nextIdx < 0 || nextIdx >= TABS.length) return;
+    UI.tab = TABS[nextIdx];
+    Prefs.set({ tab: UI.tab });
+    if (location.hash !== '#' + UI.tab) history.replaceState(null, '', '#' + UI.tab);
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const activeBtn = document.querySelector(`nav.tabs button[data-tab="${UI.tab}"]`);
+    if (activeBtn && activeBtn.scrollIntoView) activeBtn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  }, { passive: true });
 })();
 </script>
 </body>
