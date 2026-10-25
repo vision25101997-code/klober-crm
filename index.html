@@ -437,19 +437,65 @@ const pill = st => `<span class="st" style="background:${st.color}1A;color:${st.
 /* ===================== data ===================== */
 const DATA = { influencers: [], inspiration: [], news: [], gtm: [], sitelog: [] };
 const TABS = ['influencers', 'inspiration', 'news', 'gtm', 'sitelog'];
+const enrichingIds = new Set();
+async function enrichCustomItem(tab, it) {
+  if (!it || !it.id || enrichingIds.has(it.id)) return;
+  const u = it.url || it.instagramUrl || '';
+  if (!u) return;
+  enrichingIds.add(it.id);
+  try {
+    const r = await fetch('https://api.microlink.io/?url=' + encodeURIComponent(u));
+    if (!r.ok) return;
+    const j = await r.json();
+    const d = j && j.data;
+    if (!d) return;
+    const imgUrl = d.image && d.image.url ? d.image.url : (d.logo && d.logo.url ? d.logo.url : '');
+    let cleanTitle = (d.title || '').replace(/^.*?on Instagram[\u200e\u200f]*:\s*[“"”]?/i, '').replace(/[”"“][\u200e\u200f]*$/, '').trim();
+    if (cleanTitle.length > 110) cleanTitle = cleanTitle.slice(0, 107) + '…';
+    const desc = (d.description || '').replace(/^\d+[\d,.KMB]*\s+likes?,\s*\d+[\d,.KMB]*\s+comments?\s*-\s*/i, '').trim();
+    const hMatch = (d.url || '').match(/instagram\.com\/([^/?#]+)\/(?:p|reel|tv)\//i) || (d.description || '').match(/-\s*([A-Za-z0-9_.]+)\s+on\s+/i);
+    const creator = hMatch ? '@' + hMatch[1] : (d.author || '');
+    const curMap = Object.assign({}, BampState.get('custom', tab));
+    const target = Object.assign({}, curMap[it.id] || it);
+    if (tab === 'gtm') {
+      if (imgUrl && !target.thumbnail) target.thumbnail = imgUrl;
+      if (cleanTitle && (!target.title || /^Instagram Reel/i.test(target.title))) target.title = cleanTitle;
+      if (creator && (!target.channel || target.channel === 'Instagram Reel')) target.channel = creator;
+      if (d.author && !target.speaker) target.speaker = d.author;
+      if (desc && (!target.summary || target.summary === 'שותף ישירות מהטלפון ל-Klober CRM.')) target.summary = desc.slice(0, 220);
+      if (d.date && !target.publishDate) target.publishDate = String(d.date).slice(0, 10);
+    } else if (tab === 'inspiration') {
+      if (imgUrl && !target.screenshot) target.screenshot = imgUrl;
+      if (d.title && (!target.name || target.name === new URL(u).hostname.replace(/^www\./, ''))) target.name = d.title.slice(0, 60);
+      if (desc && target.whySpecial === 'שותף ישירות מהטלפון.') target.whySpecial = desc.slice(0, 180);
+    } else if (tab === 'news') {
+      if (d.title && target.title === u) target.title = d.title;
+      if (desc && target.summary === 'שותף ישירות מהטלפון.') target.summary = desc.slice(0, 200);
+    } else if (tab === 'influencers') {
+      if (d.author && (!target.name || target.name === target.handle.replace(/^@/, ''))) target.name = d.author;
+    }
+    curMap[it.id] = target;
+    BampState.set('custom', tab, curMap);
+    const idx = DATA[tab].findIndex(x => x.id === it.id);
+    if (idx !== -1) DATA[tab][idx] = target;
+    render();
+  } catch (e) {}
+}
 function mergeCustomItems() {
   for (const k of ['gtm', 'influencers', 'inspiration', 'news']) {
     const customMap = BampState.get('custom', k) || {};
     const items = Object.values(customMap).filter(x => x && x.id);
     if (!items.length) continue;
-    const existingIds = new Set(DATA[k].map(x => x.id));
-    const existingUrls = new Set(DATA[k].map(x => (x.url || x.instagramUrl || '').replace(/\/?$/, '')));
     for (const it of items) {
       const u = (it.url || it.instagramUrl || '').replace(/\/?$/, '');
-      if (!existingIds.has(it.id) && (!u || !existingUrls.has(u))) {
+      const idx = DATA[k].findIndex(x => x.id === it.id || (u && (x.url || x.instagramUrl || '').replace(/\/?$/, '') === u));
+      if (idx === -1) {
         DATA[k].unshift(it);
-        existingIds.add(it.id);
-        if (u) existingUrls.add(u);
+      } else {
+        DATA[k][idx] = Object.assign({}, DATA[k][idx], it);
+      }
+      if ((k === 'gtm' && !it.thumbnail) || (k === 'inspiration' && !it.screenshot)) {
+        enrichCustomItem(k, it);
       }
     }
     const nEl = $('#n-' + k);
@@ -652,7 +698,7 @@ function viewGtm() {
   const card = v => { const on = liked(v), ig = isIg(v), watchLbl = ig ? 'לצפייה בריל באינסטגרם ↗' : 'לצפייה ביוטיוב ↗';
     return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${manCls(v)}" data-id="${esc(v.id)}">
       <a class="thumb" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${ig ? 'צפייה באינסטגרם' : 'צפייה ביוטיוב'}: ${esc(v.title)}">
-        ${v.thumbnail ? `<img loading="lazy" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph"><span>Instagram Reel</span></div>`}
+        ${v.thumbnail ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph"><span>Instagram Reel</span></div>`}
         <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#04140D"><path d="M8 5v14l11-7z"/></svg></span>
         ${v.duration ? `<span class="dur">${esc(v.duration)}</span>` : (ig ? `<span class="dur">Reel</span>` : '')}
         ${v.approach ? `<span class="appr">${esc(v.approach)}</span>` : ''}
@@ -849,6 +895,7 @@ function saveSharedItem(rawInput, titleIn = '', noteIn = '', explicitTab = '') {
   Prefs.set({ tab: UI.tab, src: UI.src });
   render();
   showToast('✓ הפוסט עלה ונשמר ב-✋ ידני!');
+  enrichCustomItem(tab, item);
   return item;
 }
 function openShareModal(prefillUrl = '', prefillTitle = '', prefillTab = '') {
