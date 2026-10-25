@@ -376,9 +376,9 @@ html,body{overflow-x:hidden;max-width:100%}
    We only PUT what changed. Offline/failed → localStorage (keys prefixed "bamp-"). Optional ?syncns=test-x for tests. */
 const BampState = (() => {
   const ns = new URLSearchParams(location.search).get('syncns');
-  const URL_ = 'api/state' + (ns ? '?ns=' + encodeURIComponent(ns) : '');
+  const URL_ = 'https://voipho-klober-crm.netlify.app/bamp/api/state' + (ns ? '?ns=' + encodeURIComponent(ns) : '');
   const SEED_URL = 'state.json';
-  let staticOnly = /\.github\.io$/i.test(location.hostname);
+  let staticOnly = false;
   const KEY = kind => 'bamp-' + kind + '-v1';
   const LS = 'bamp-crm-entries-v1', LSP = 'bamp-crm-pending-v1';
   const read = k => { try { return JSON.parse(localStorage.getItem(k) || '{}') || {}; } catch (e) { return {}; } };
