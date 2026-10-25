@@ -301,7 +301,11 @@ html,body{overflow-x:hidden;max-width:100%}
 .kload-title{font-weight:800;font-size:16px;color:#ECFDF5;letter-spacing:-.2px}
 .kload-sub{font-size:12.5px;color:#9CA3AF;line-height:1.35}
 .igph.kloading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:radial-gradient(circle at 50% 50%,#0E291E 0%,#06110C 100%)}
-.igph.kloading svg{width:54px;height:45px}
+.igph.kloading{width:100%;height:100%;position:relative}
+.igph.kloading svg{width:48px;height:40px}
+.card-kload{position:absolute;inset:0;z-index:8;background:rgba(6,17,12,.88);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;text-align:center}
+.card-kload svg{width:52px;height:44px;filter:drop-shadow(0 0 12px rgba(22,196,127,.35))}
+.card-kload span{font-size:12px;font-weight:700;color:#A7F3D0}
 .delbtn{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:6px 10px;border-radius:9px;border:1px solid rgba(239,68,68,.28);background:rgba(239,68,68,.08);color:#F87171;font:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:.15s;margin-inline-start:auto}
 .delbtn:hover{background:rgba(239,68,68,.2);border-color:#EF4444;color:#FCA5A5}
 .card .row .rowdel{padding:5px 8px;border-radius:8px;border:1px solid rgba(239,68,68,.25);background:rgba(239,68,68,.08);color:#F87171;font-size:12px;line-height:1;cursor:pointer;transition:.15s}
@@ -659,7 +663,7 @@ async function enrichCustomItem(tab, it, withOverlay = false) {
   if (!u) return;
   enrichingIds.add(it.id);
   const t0 = Date.now();
-  if (withOverlay) showKLoader(tab === 'influencers' ? 'מעלה משפיען ל-Klober…' : 'מעלה את הקובץ ל-Klober…', 'שולף תמונה ופרטים מהקישור');
+  render();
   try {
     let d = null;
     try {
@@ -749,16 +753,9 @@ async function enrichCustomItem(tab, it, withOverlay = false) {
     }
   } catch (e) {}
   enrichingIds.delete(it.id);
+  render();
   if (withOverlay) {
-    const elapsed = Date.now() - t0;
-    const waitMore = Math.max(0, 1100 - elapsed);
-    setTimeout(() => {
-      hideKLoader(300);
-      render();
-      showToast(tab === 'influencers' ? '✓ המשפיען עלה ונשמר ב-✋ ידני!' : '✓ הפריט עלה ונשמר ב-✋ ידני!');
-    }, waitMore);
-  } else {
-    render();
+    showToast(tab === 'influencers' ? '✓ המשפיען עלה ונשמר ב-✋ ידני!' : '✓ הפריט עלה ונשמר ב-✋ ידני!');
   }
 }
 const knownManualIds = new Set();
@@ -879,7 +876,7 @@ function infCard(i) {
   const ev = (i.affiliateEvidence || []).map(e => `<li><b>${esc(e.brand)}</b> — ${esc(e.note)} ${e.url ? '· ' + link(e.url, 'מקור') : ''}</li>`).join('');
   const plats = (i.platforms || []).map(p => link(p.url, esc(p.name))).join('');
   const F = (label, html, cls = '') => `<div class="f ${cls}"><label>${label}</label><div>${html || '<span class="src">—</span>'}</div></div>`;
-  return `<article class="card ${open ? 'open' : ''} ${manCls(i)}" data-id="${esc(i.id)}">
+  return `<article class="card ${open ? 'open' : ''} ${manCls(i)}" data-id="${esc(i.id)}" style="position:relative">${enrichingIds.has(i.id) ? `<div class="card-kload" style="flex-direction:row;gap:12px">${K_LOADER_SVG}<span>מעלה משפיען…</span></div>` : ''}
     <button class="row" aria-expanded="${open}">
       ${i.avatar ? `<img class="av" referrerpolicy="no-referrer" src="${esc(i.avatar)}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="av" style="display:none">${esc((i.name || '?').trim()[0])}</span>` : `<span class="av">${esc((i.name || '?').trim()[0])}</span>`}
       <span class="who"><b>${esc(i.name)}${manBadge(i)}</b><small>${ltr(i.handle)}</small><span class="mst">${pill(st)} <span class="fit ${fitCls}">${i.fitScore == null ? '—' : i.fitScore}/10</span></span></span>
@@ -956,7 +953,7 @@ function viewInspiration() {
   const items = DATA.inspiration.filter(srcOk).sort((a, b) => (b.pinned - a.pinned) || b.dateAdded.localeCompare(a.dateAdded));
   const mine = items.filter(isManual), pinned = items.filter(i => i.pinned && !isManual(i)), rest = items.filter(i => !i.pinned && !isManual(i));
   const card = i => { const fav = !!BampState.get('inspiration', i.id).fav;
-    return `<article class="site ${i.pinned ? 'pin' : ''} ${manCls(i)}" data-id="${esc(i.id)}">
+    return `<article class="site ${i.pinned ? 'pin' : ''} ${manCls(i)}" data-id="${esc(i.id)}" style="position:relative">${enrichingIds.has(i.id) ? `<div class="card-kload">${K_LOADER_SVG}<span>מעלה אתר…</span></div>` : ''}
       <a class="shot" href="${esc(i.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(i.screenshot)}" alt="${esc(i.name)}"></a>
       <div class="body">
         <div class="meta" style="display:flex;gap:4px;align-items:center;flex-wrap:wrap">${manBadge(i)}${i.pinned ? '<span class="pinb">📌 מוביל</span>' : ''}</div>
@@ -973,7 +970,7 @@ function viewNews() {
   const nlist = DATA.news.filter(srcOk);
   const groups = groupBy(nlist.filter(n => !isManual(n)), i => i.dateAdded);
   const card = n => { const fav = !!BampState.get('news', n.id).fav;
-    return `<article class="item ${manCls(n)}" data-id="${esc(n.id)}">
+    return `<article class="item ${manCls(n)}" data-id="${esc(n.id)}" style="position:relative;overflow:hidden">${enrichingIds.has(n.id) ? `<div class="card-kload">${K_LOADER_SVG}<span>מעלה כתבה…</span></div>` : ''}
       <div class="meta"><span class="s">${esc(n.source)}</span><span>${fmtDate(n.date)}</span>${manBadge(n)}</div>
       <h3>${link(n.url, `<bdi>${esc(n.title)}</bdi>`)}</h3>
       <p>${esc(n.summary)}</p>
@@ -1011,7 +1008,7 @@ function viewGtm() {
   const nLiked = DATA.gtm.filter(liked).length;
   const list = DATA.gtm.filter(v => (UI.gtmf !== 'liked' || liked(v)) && srcOk(v));
   const card = v => { const on = liked(v), ig = isIg(v), watchLbl = ig ? 'לריל ↗' : 'ליוטיוב ↗';
-    return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${manCls(v)}" data-id="${esc(v.id)}">
+    return `<article class="vid ${ig ? 'igreel' : ''} ${on ? 'liked' : ''} ${manCls(v)}" data-id="${esc(v.id)}" style="position:relative">${enrichingIds.has(v.id) ? `<div class="card-kload">${K_LOADER_SVG}<span>מעלה פוסט…</span></div>` : ''}
       <a class="thumb" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(v.title)}">
         ${v.thumbnail ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(v.thumbnail)}" alt="">` : `<div class="igph kloading">${K_LOADER_SVG}${enrichingIds.has(v.id) ? `<span>טוען…</span>` : ``}</div>`}
         <span class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="#04140D"><path d="M8 5v14l11-7z"/></svg></span>
