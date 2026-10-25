@@ -535,9 +535,12 @@ const BampState = (() => {
 /* ===================== UI prefs (localStorage, bamp- prefix) ===================== */
 const Prefs = {
   key: 'bamp-ui-v1',
-  get() { try { return JSON.parse(localStorage.getItem(this.key) || '{}'); } catch (e) { return {};
+  get() { try { return JSON.parse(localStorage.getItem(this.key) || '{}'); } catch (e) { return {}; } },
+  set(p) { try { localStorage.setItem(this.key, JSON.stringify(Object.assign(this.get(), p))); } catch (e) {} }
+};
 
 const USER_KEY = 'klober-user-v1';
+const OB_DONE_KEY = 'klober-onboarded-v1';
 let lastUploadedRef = null;
 function normUser(v) {
   const s = String(v || '').trim().toLowerCase();
@@ -558,7 +561,7 @@ function getCurrentUser() {
 }
 function setCurrentUser(u, silent = false) {
   const clean = normUser(u) || 'בר';
-  try { localStorage.setItem(USER_KEY, clean); } catch (e) {}
+  try { localStorage.setItem(USER_KEY, clean); localStorage.setItem(OB_DONE_KEY, "1"); } catch (e) {}
   syncUserUi();
   if (lastUploadedRef && lastUploadedRef.item) {
     const { tab, item } = lastUploadedRef;
@@ -579,9 +582,7 @@ function syncUserUi() {
   });
   const shBy = document.getElementById('sh-by');
   if (shBy && u) shBy.value = u;
-} } },
-  set(p) { try { localStorage.setItem(this.key, JSON.stringify(Object.assign(this.get(), p))); } catch (e) {} }
-};
+}
 
 /* ===================== helpers ===================== */
 const $ = (s, el = document) => el.querySelector(s);
@@ -1311,8 +1312,9 @@ $('#shmodal-form').addEventListener('submit', e => {
       obBg.classList.add("open");
     }
     const finishOb = () => {
-      if (!getCurrentUser()) setCurrentUser("בר", true);
+      if (!getCurrentUser()) setCurrentUser("רועי", true);
       try { localStorage.setItem(OB_KEY, "1"); } catch (e) {}
+      if (forceOb) { try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {} }
       obBg.classList.remove("open");
     };
     if (obClose) obClose.addEventListener("click", finishOb);
