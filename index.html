@@ -1052,8 +1052,6 @@ function switchTabSmooth(nextTab, dirHint = 0) {
 document.querySelector('nav.tabs').addEventListener('click', e => {
   const b = e.target.closest('button[data-tab]'); if (!b) return;
   switchTabSmooth(b.dataset.tab);
-}); if (location.hash !== '#' + UI.tab) history.replaceState(null, '', '#' + UI.tab);
-  render(); window.scrollTo({ top: 0 });
 });
 $('#app').addEventListener('click', e => {
   const f = e.target.closest('[data-f]');
