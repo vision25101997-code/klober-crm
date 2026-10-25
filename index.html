@@ -1012,7 +1012,7 @@ $('#app').addEventListener('click', e => {
     if (f.dataset.f === 'st') UI.st = f.dataset.v; else if (f.dataset.f === 'aff') UI.aff = !UI.aff; else if (f.dataset.f === 'gtmf') UI.gtmf = f.dataset.v; else if (f.dataset.f === 'cf') UI.cf = f.dataset.v;
     else if (f.dataset.f === 'src') UI.src = Object.assign({}, UI.src, { [UI.tab]: f.dataset.v });
     else if (f.dataset.f === 'manby') UI.manby = Object.assign({}, UI.manby, { [UI.tab]: f.dataset.v });
-    else if (f.dataset.f === 'flt') { UI.fltOpen = !UI.fltOpen; render(); if (UI.fltOpen) { const s = $('input[data-f=q]'); if (s) s.focus(); } return; }
+    else if (f.dataset.f === 'flt') { UI.fltOpen = !UI.fltOpen; render(); return; }
     Prefs.set({ st: UI.st, aff: UI.aff, cf: UI.cf, gtmf: UI.gtmf, src: UI.src, manby: UI.manby, man: undefined }); render(); return;
   }
   const row = e.target.closest('.row');
