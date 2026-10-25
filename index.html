@@ -346,9 +346,6 @@ img.av{object-fit:cover;display:block;border:1px solid rgba(22,196,127,.35)}
       <button role="tab" data-tab="gtm">GTM <span class="n" id="n-gtm">0</span></button>
       <button role="tab" data-tab="sitelog">לוג אתר <span class="n" id="n-sitelog">0</span></button>
     </nav>
-    <button type="button" class="addbtn" id="btn-open-add" title="הוסף לינק או סרטון ל-CRM">＋ הוסף</button>
-    <button type="button" class="user-pill" id="btn-user-pill" title="החלף משתמש פעיל">👤 <span id="cur-user-lbl">בחר משתמש</span></button>
-    <button type="button" class="helpbtn" id="btn-open-ob" title="איך מתקינים ומשתפים מהאייפון">📲 חיבור לאייפון</button>
     <div class="sync" id="sync" title="מצב שמירה"><i></i><span>טוען…</span></div>
   </div>
 </header>
@@ -356,47 +353,7 @@ img.av{object-fit:cover;display:block;border:1px solid rgba(22,196,127,.35)}
 <main class="wrap" id="app"></main>
 <footer>Klober CRM · v1.1 · הנתונים נאספו ממקורות ציבוריים; שדה ריק = לא ידוע (לא נוחש)</footer>
 
-<div class="shmodal-bg" id="shmodal-bg" role="dialog" aria-modal="true" aria-labelledby="shmodal-title">
-  <form class="shmodal" id="shmodal-form">
-    <h3><span id="shmodal-title">✋ הוספה מהירה ל-CRM</span><button type="button" id="shmodal-close" aria-label="סגור">✕</button></h3>
-    <div>
-      <label for="sh-url">קישור (אינסטגרם, יוטיוב, אתר או כתבה)</label>
-      <input id="sh-url" type="url" dir="ltr" required placeholder="https://www.instagram.com/reel/...">
-    </div>
-    <div>
-      <label for="sh-tab">לאיזו לשונית להוסיף?</label>
-      <select id="sh-tab">
-        <option value="gtm">GTM · סרטונים ורילסים</option>
-        <option value="influencers">משפיענים</option>
-        <option value="inspiration">השראה לעיצוב</option>
-        <option value="news">חדשות</option>
-      </select>
-    </div>
-    <div>
-      <label for="sh-by">מועלה על ידי</label>
-      <select id="sh-by">
-        <option value="בר">👤 בר</option>
-        <option value="רועי">👤 רועי</option>
-      </select>
-    </div>
-    <div>
-      <label for="sh-title">כותרת / שם (אופציונלי)</label>
-      <input id="sh-title" type="text" placeholder="למשל: ריל מעולה ל-GTM או שם היוצר">
-    </div>
-    <div>
-      <label for="sh-note">הערה / מה לקחת ל-Klober (אופציונלי)</label>
-      <textarea id="sh-note" rows="2" placeholder="הערה קצרה שלך או של רועי…"></textarea>
-    </div>
-    <div class="shbtns">
-      <button type="submit" class="shsave">שמור ב-✋ ידני</button>
-      <button type="button" class="shcancel" id="shmodal-cancel">ביטול</button>
-    </div>
-    <div style="border-top:1px solid #1E242B;padding-top:10px;margin-top:2px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12.5px;color:#9CA3AF">
-      <span>רוצה לשתף ישירות מתפריט ה-Share באייפון?</span>
-      <a href="https://voipho-klober-crm.netlify.app/bamp/Klober-CRM.shortcut" download="Klober CRM.shortcut" style="color:#16C47F;font-weight:700;text-decoration:none;white-space:nowrap;padding:5px 10px;border-radius:8px;border:1px solid rgba(22,196,127,.35);background:rgba(22,196,127,.1)">📲 התקן קיצור לאייפון</a>
-    </div>
-  </form>
-</div>
+
 
 
 <div class="ob-bg" id="ob-bg" role="dialog" aria-modal="true" aria-labelledby="ob-title">
@@ -542,6 +499,11 @@ const Prefs = {
 const USER_KEY = 'klober-user-v1';
 const OB_DONE_KEY = 'klober-onboarded-v1';
 let lastUploadedRef = null;
+function devSig() {
+  try {
+    return [navigator.platform || '', screen.width + 'x' + screen.height, window.devicePixelRatio || 1].join('|');
+  } catch (e) { return 'default'; }
+}
 function normUser(v) {
   const s = String(v || '').trim().toLowerCase();
   if (s === 'roy' || s === 'roi' || s.includes('רועי') || s.includes('רואי')) return 'רועי';
@@ -552,16 +514,44 @@ function getCurrentUser() {
   try {
     const qp = new URLSearchParams(location.search);
     const fromUrl = normUser(qp.get('by') || qp.get('user'));
-    if (fromUrl) { localStorage.setItem(USER_KEY, fromUrl); return fromUrl; }
+    if (fromUrl) {
+      localStorage.setItem(USER_KEY, fromUrl);
+      localStorage.setItem(OB_DONE_KEY, '1');
+      document.cookie = 'klober_user=' + encodeURIComponent(fromUrl) + '; path=/; max-age=31536000; SameSite=Lax';
+      return fromUrl;
+    }
     const saved = normUser(localStorage.getItem(USER_KEY));
     if (saved) return saved;
+    const mCookie = document.cookie.match(/(?:^|;\s*)klober_user=([^;]+)/);
+    if (mCookie) {
+      const fromCookie = normUser(decodeURIComponent(mCookie[1]));
+      if (fromCookie) { localStorage.setItem(USER_KEY, fromCookie); return fromCookie; }
+    }
+    const devMap = BampState.get('custom', '_devices');
+    if (devMap && typeof devMap === 'object') {
+      const fromDev = normUser(devMap[devSig()]);
+      if (fromDev) {
+        localStorage.setItem(USER_KEY, fromDev);
+        localStorage.setItem(OB_DONE_KEY, '1');
+        return fromDev;
+      }
+    }
     if (window.parent !== window) { localStorage.setItem(USER_KEY, 'בר'); return 'בר'; }
   } catch (e) {}
   return '';
 }
 function setCurrentUser(u, silent = false) {
   const clean = normUser(u) || 'בר';
-  try { localStorage.setItem(USER_KEY, clean); localStorage.setItem(OB_DONE_KEY, "1"); } catch (e) {}
+  try {
+    localStorage.setItem(USER_KEY, clean);
+    localStorage.setItem(OB_DONE_KEY, '1');
+    document.cookie = 'klober_user=' + encodeURIComponent(clean) + '; path=/; max-age=31536000; SameSite=Lax';
+    const devMap = Object.assign({}, BampState.get('custom', '_devices'));
+    devMap[devSig()] = clean;
+    BampState.set('custom', '_devices', devMap);
+    const slug = clean === 'רועי' ? 'roy' : 'bar';
+    history.replaceState(null, '', location.pathname + '?by=' + slug + location.hash);
+  } catch (e) {}
   syncUserUi();
   if (lastUploadedRef && lastUploadedRef.item) {
     const { tab, item } = lastUploadedRef;
@@ -575,13 +565,9 @@ function setCurrentUser(u, silent = false) {
 }
 function syncUserUi() {
   const u = getCurrentUser();
-  const lbl = document.getElementById('cur-user-lbl');
-  if (lbl) lbl.innerHTML = u ? 'מחובר: <b>' + u + '</b>' : 'בחר משתמש';
   document.querySelectorAll('[data-pick-user]').forEach(b => {
     b.setAttribute('aria-pressed', b.dataset.pickUser === u ? 'true' : 'false');
   });
-  const shBy = document.getElementById('sh-by');
-  if (shBy && u) shBy.value = u;
 }
 
 /* ===================== helpers ===================== */
@@ -1230,38 +1216,12 @@ function saveSharedItem(rawInput, titleIn = '', noteIn = '', explicitTab = '', b
   if (existingIdx === -1) DATA[tab].unshift(item); else DATA[tab][existingIdx] = item;
   const nEl = $('#n-' + tab);
   if (nEl) nEl.textContent = DATA[tab].length;
-  if (!hadUser) {
-    lastUploadedRef = { tab, item };
-    const obBg = document.getElementById('ob-bg');
-    if (obBg) obBg.classList.add('open');
-  }
+  try { localStorage.setItem(OB_DONE_KEY, "1"); } catch (e) {}
   render();
   enrichCustomItem(tab, item, true);
   return item;
 }
-function openShareModal(prefillUrl = '', prefillTitle = '', prefillTab = '') {
-  const bg = $('#shmodal-bg');
-  const cleanUrl = (String(prefillUrl).match(/https?:\/\/\S+/) || [prefillUrl])[0].trim();
-  $('#sh-url').value = cleanUrl;
-  $('#sh-title').value = prefillTitle || '';
-  $('#sh-note').value = '';
-  $('#sh-tab').value = detectShareTab(cleanUrl, prefillTab);
-  if ($('#sh-by')) $('#sh-by').value = getCurrentUser() || 'בר';
-  bg.classList.add('open');
-}
-function closeShareModal() { $('#shmodal-bg').classList.remove('open'); }
-$('#btn-open-add').addEventListener('click', () => openShareModal());
-$('#sh-url').addEventListener('input', e => { const v = e.target.value.trim(); if (v) $('#sh-tab').value = detectShareTab(v); });
-$('#shmodal-close').addEventListener('click', closeShareModal);
-$('#shmodal-cancel').addEventListener('click', closeShareModal);
-$('#shmodal-bg').addEventListener('click', e => { if (e.target.id === 'shmodal-bg') closeShareModal(); });
-$('#shmodal-form').addEventListener('submit', e => {
-  e.preventDefault();
-  const chosenBy = $('#sh-by') ? $('#sh-by').value : '';
-  if (chosenBy && !getCurrentUser()) setCurrentUser(chosenBy, true);
-  saveSharedItem($('#sh-url').value.trim(), $('#sh-title').value.trim(), $('#sh-note').value.trim(), $('#sh-tab').value, chosenBy);
-  closeShareModal();
-});
+
 
 (async () => {
   // Capture shared URL immediately from location.href before anything else
@@ -1285,15 +1245,14 @@ $('#shmodal-form').addEventListener('submit', e => {
   BampState.onChange(() => { mergeCustomItems(); const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
 })();
 
-// First-time onboarding flow (auto-opens once on first visit, or anytime via #btn-open-ob or ?welcome=1)
+// First-time onboarding flow (opens ONLY once on initial entry, never during shares/uploads)
 (() => {
   const obBg = document.getElementById("ob-bg");
   const obClose = document.getElementById("ob-close");
-  const obBtn = document.getElementById("btn-open-ob");
-  const userPill = document.getElementById("btn-user-pill");
   const OB_KEY = "klober-onboarded-v1";
+  const rawHref = location.href;
   const qsOb = new URLSearchParams(location.search);
-  const isAddFlow = qsOb.has("add");
+  const isAddFlow = qsOb.has("add") || qsOb.has("url") || qsOb.has("text") || /[?&](add|url|text)=/i.test(rawHref);
   const forceOb = qsOb.has("welcome");
   syncUserUi();
   document.querySelectorAll("[data-pick-user]").forEach(btn => {
@@ -1301,27 +1260,24 @@ $('#shmodal-form').addEventListener('submit', e => {
       setCurrentUser(btn.dataset.pickUser);
     });
   });
-  if (userPill && obBg) {
-    userPill.addEventListener("click", () => {
-      syncUserUi();
-      obBg.classList.add("open");
-    });
-  }
   if (obBg) {
-    if (forceOb || (!isAddFlow && (!localStorage.getItem(OB_KEY) || !getCurrentUser()))) {
+    const alreadyOnboarded = !!localStorage.getItem(OB_KEY);
+    if (!isAddFlow && (forceOb || !alreadyOnboarded)) {
+      try { localStorage.setItem(OB_KEY, "1"); } catch (e) {}
+      if (forceOb) {
+        try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
+      }
       obBg.classList.add("open");
     }
     const finishOb = () => {
-      if (!getCurrentUser()) setCurrentUser("רועי", true);
+      if (!getCurrentUser()) setCurrentUser("בר", true);
       try { localStorage.setItem(OB_KEY, "1"); } catch (e) {}
-      if (forceOb) { try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {} }
       obBg.classList.remove("open");
     };
     if (obClose) obClose.addEventListener("click", finishOb);
     obBg.addEventListener("click", (e) => {
       if (e.target === obBg) finishOb();
     });
-    if (obBtn) obBtn.addEventListener("click", () => { syncUserUi(); obBg.classList.add("open"); });
   }
 })();
 </script>
