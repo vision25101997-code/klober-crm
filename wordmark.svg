@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 64" width="205" height="64" role="img" aria-label="Klober">
+  <rect x="2" y="8" width="48" height="48" rx="14" fill="#16C47F"/>
+  <path d="M15.5 20H22V29.9L30.8 20H38.3L28.2 31.1L38.9 44H31.5L23.9 34.5L22 36.6V44H15.5V20Z" fill="#0A0A0A"/>
+  <text x="62" y="45" fill="#16C47F" font-family="'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="37" font-weight="800" letter-spacing="-0.5">Klober</text>
+</svg>

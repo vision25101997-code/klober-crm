@@ -1,0 +1,29 @@
+[
+  {
+    "version": "v3",
+    "date": "2026-10-25",
+    "time": "01:34",
+    "note": "החלפת באנר העוגיות לאנגלית בלבד (Accept / Decline)",
+    "changed": ["index", "blog", "docs", "legal", "security"],
+    "commit": "https://github.com/vision25101997-code/klober-site/commit/036e7033f74c1f1eb7b79743dab1cee9a9b57b7d",
+    "live": true
+  },
+  {
+    "version": "v2",
+    "date": "2026-10-25",
+    "time": "01:13",
+    "note": "הוספת Google Analytics 4 (G-DP0VC80775), מעקב קליקים ובאנר עוגיות בעברית",
+    "changed": ["index", "blog", "docs", "legal", "security"],
+    "commit": "https://github.com/vision25101997-code/klober-site/commit/044cf03b90d94ecd8ab9410ee8a8898fa53c7ecc",
+    "live": false
+  },
+  {
+    "version": "v1",
+    "date": "2026-10-23",
+    "time": "00:24",
+    "note": "גרסה ראשונה – 5 דפים מקלוד (Klober - Desktop)",
+    "changed": ["index", "blog", "docs", "legal", "security", "CNAME"],
+    "commit": "https://github.com/vision25101997-code/klober-site/commit/4f889cb380e439e71f34ae638784bff1e8f2db10",
+    "live": false
+  }
+]
