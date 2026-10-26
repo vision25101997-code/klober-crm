@@ -355,9 +355,31 @@ img.av{object-fit:cover;display:block;border:1px solid rgba(22,196,127,.35)}
 .flt-drawer.open{display:block}
 
 #app{will-change:transform,opacity;transform:translate3d(0,0,0);backface-visibility:hidden;-webkit-backface-visibility:hidden;touch-action:pan-y}
+
+.ws-top-bar{display:none;background:#0A0A0A;border-bottom:1px solid rgba(255,255,255,.07);padding:env(safe-area-inset-top) max(10px, env(safe-area-inset-right)) 0 max(10px, env(safe-area-inset-left));position:sticky;top:0;z-index:60}
+.ws-top-bar.vis{display:block}
+.ws-top-row{height:44px;display:flex;align-items:center;justify-content:center}
+.ws-top-seg{direction:ltr;display:inline-flex;gap:2px;padding:2px;border-radius:10px;background:#1C1C1E;border:1px solid rgba(255,255,255,.07)}
+.ws-top-seg button{appearance:none;border:0;margin:0;background:transparent;color:#8E8E93;font:500 13.5px/1 var(--font);height:30px;min-width:96px;padding:0 14px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,color .15s}
+.ws-top-seg button[aria-pressed="true"]{background:#2C2C2E;color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.ws-top-seg svg{width:16px;height:16px;border-radius:4px;flex:none}
+body.ws-has-bar header.top{top:calc(45px + env(safe-area-inset-top))}
+body.ws-voipho-mode header.top,body.ws-voipho-mode main#app,body.ws-voipho-mode footer{display:none !important}
+#voipho-inline-frame{display:none;width:100%;height:calc(100dvh - 45px - env(safe-area-inset-top));border:0;background:#0A0A0A}
+body.ws-voipho-mode #voipho-inline-frame{display:block}
+
 </style>
 </head>
 <body>
+<div class="ws-top-bar" id="ws-top-bar">
+  <div class="ws-top-row">
+    <div class="ws-top-seg" role="group" aria-label="סביבת עבודה">
+      <button type="button" data-top-ws="voipho" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#FF3C00"/><path d="M18 20 L32 46 L46 20" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Voipho</span></button>
+      <button type="button" data-top-ws="bamp" aria-pressed="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#16C47F"/><path d="M18 16H26.5V29.2L38.2 16H48.2L34.8 30.8L49 48H39.2L29.1 35.4L26.5 38.2V48H18V16Z" fill="#0A0A0A"/></svg><span>Klober</span></button>
+    </div>
+  </div>
+</div>
+<iframe id="voipho-inline-frame" aria-label="Voipho"></iframe>
 <header class="top">
   <div class="wrap">
     <div class="brand"><span dir="ltr" style="display:inline-flex;align-items:center;gap:8px;direction:ltr;unicode-bidi:isolate"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="26" height="26" role="img" aria-label="Klober" style="display:block;flex-shrink:0"><rect width="64" height="64" rx="16" fill="#16C47F"/><path d="M18 16H26.5V29.2L38.2 16H48.2L34.8 30.8L49 48H39.2L29.1 35.4L26.5 38.2V48H18V16Z" fill="#0A0A0A"/></svg><span style="color:#16C47F;font-weight:800;font-size:21px;letter-spacing:-0.4px;line-height:1">Klober</span></span><span class="sub">CRM · צמיחה</span></div>
@@ -594,6 +616,13 @@ function syncUserUi() {
   document.querySelectorAll('[data-pick-user]').forEach(b => {
     b.setAttribute('aria-pressed', b.dataset.pickUser === u ? 'true' : 'false');
   });
+  const wsBar = document.getElementById('ws-top-bar');
+  if (wsBar) {
+    const showBar = (window.top === window) && (u !== 'רועי');
+    wsBar.classList.toggle('vis', showBar);
+    document.body.classList.toggle('ws-has-bar', showBar);
+    if (!showBar) document.body.classList.remove('ws-voipho-mode');
+  }
 }
 
 /* ===================== helpers ===================== */
@@ -1378,6 +1407,7 @@ function notifyPartnerPush(by, tab, id) {
   const sharedTab = qp.get('tab') || '';
   const h = location.hash.slice(1); if (TABS.includes(h)) UI.tab = h;
   await Promise.all([loadData(), BampState.start()]);
+  syncUserUi();
   mergeCustomItems();
   if (sharedUrl && /https?:\/\//i.test(sharedUrl)) {
     history.replaceState(null, '', location.pathname);
@@ -1418,6 +1448,19 @@ function notifyPartnerPush(by, tab, id) {
   const forceOb = qsOb.has("welcome");
   syncUserUi();
   updatePushBellUi();
+  document.querySelectorAll('[data-top-ws]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.topWs;
+      document.querySelectorAll('[data-top-ws]').forEach(b => b.setAttribute('aria-pressed', b.dataset.topWs === target ? 'true' : 'false'));
+      const vf = document.getElementById('voipho-inline-frame');
+      if (target === 'voipho') {
+        if (vf && !vf.getAttribute('src')) vf.setAttribute('src', 'https://voipho-klober-crm.netlify.app/voipho/');
+        document.body.classList.add('ws-voipho-mode');
+      } else {
+        document.body.classList.remove('ws-voipho-mode');
+      }
+    });
+  });
   if (btnEnablePush) btnEnablePush.addEventListener("click", () => enablePushNotifications(false));
   if (pushBell) pushBell.addEventListener("click", () => enablePushNotifications(false));
   document.querySelectorAll("[data-pick-user]").forEach(btn => {
