@@ -1518,7 +1518,17 @@ function notifyPartnerPush(by, tab, id) {
   const sharedTitle = qp.get('title') || '';
   const sharedTab = qp.get('tab') || '';
   const h = location.hash.slice(1); if (TABS.includes(h)) UI.tab = h;
+  const urlByUser = normUser(qp.get('by') || qp.get('user'));
   await Promise.all([loadData(), BampState.start()]);
+  if (urlByUser) {
+    try {
+      const devMap = Object.assign({}, BampState.get('custom', '_devices'));
+      if (devMap[devSig()] !== urlByUser) {
+        devMap[devSig()] = urlByUser;
+        BampState.set('custom', '_devices', devMap);
+      }
+    } catch (e) {}
+  }
   syncUserUi();
   mergeCustomItems();
   if (sharedUrl && /https?:\/\//i.test(sharedUrl)) {
@@ -1527,7 +1537,7 @@ function notifyPartnerPush(by, tab, id) {
   } else {
     render();
   }
-  BampState.onChange(() => { mergeCustomItems(true); const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
+  BampState.onChange(() => { syncUserUi(); mergeCustomItems(true); const a = document.activeElement; if (a && a.matches('textarea, input')) return; render(); });
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(() => {
       updatePushBellUi();
@@ -1586,7 +1596,11 @@ function notifyPartnerPush(by, tab, id) {
     if (!isAddFlow && (forceOb || !alreadyOnboarded)) {
       try { localStorage.setItem(OB_KEY, "1"); } catch (e) {}
       if (forceOb) {
-        try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
+        try {
+          const curU = getCurrentUser();
+          const byParam = curU === "רועי" ? "?by=roy" : (curU === "בר" ? "?by=bar" : "");
+          history.replaceState(null, "", location.pathname + byParam + location.hash);
+        } catch (e) {}
       }
       obBg.classList.add("open");
     }
