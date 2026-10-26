@@ -459,7 +459,7 @@ body.ws-voipho-mode #voipho-inline-frame{display:block}
       <div class="ob-step">
         <div class="ob-step-top"><span class="ob-num">3</span><span>שיתוף ישיר של פוסטים וחשבונות משפיענים</span></div>
         <p>התקן את הקיצור ובחר <b>Add Shortcut</b> — מעכשיו בכל פוסט או עמוד פרופיל של משפיען לחץ <b>Share → Klober CRM</b> והוא ייכנס אוטומטית לקטגוריה המתאימה על שמך.</p>
-        <a class="ob-btn" href="https://voipho-klober-crm.netlify.app/bamp/Klober-CRM.shortcut" download="Klober CRM.shortcut">📲 הורד והתקן את הקיצור לאייפון</a>
+        <a class="ob-btn" href="Klober-CRM.shortcut" download="Klober CRM.shortcut">📲 הורד והתקן את הקיצור לאייפון</a>
       </div>
     </div>
     <button type="button" class="ob-done" id="ob-close">סיימתי, כניסה ל-CRM ←</button>
@@ -492,7 +492,11 @@ body.ws-voipho-mode #voipho-inline-frame{display:block}
    We only PUT what changed. Offline/failed → localStorage (keys prefixed "bamp-"). Optional ?syncns=test-x for tests. */
 const BampState = (() => {
   const ns = new URLSearchParams(location.search).get('syncns');
-  const URL_ = 'https://voipho-klober-crm.netlify.app/bamp/api/state' + (ns ? '?ns=' + encodeURIComponent(ns) : '');
+  const encKey = s => encodeURIComponent(String(s)).replace(/\./g, '%2E');
+  const decKey = s => { try { return decodeURIComponent(String(s)); } catch (e) { return String(s); } };
+  const encTree = x => Array.isArray(x) ? x.map(encTree) : (x && typeof x === 'object' ? Object.fromEntries(Object.entries(x).map(([k, v]) => [encKey(k), encTree(v)])) : x);
+  const decTree = x => Array.isArray(x) ? x.map(decTree) : (x && typeof x === 'object' ? Object.fromEntries(Object.entries(x).map(([k, v]) => [decKey(k), decTree(v)])) : x);
+  const BASE_URL = 'https://klober-crm-sync-default-rtdb.firebaseio.com/bamp/' + encKey(ns || 'main') + '/entries';
   const SEED_URL = 'state.json';
   let staticOnly = false;
   const KEY = kind => 'bamp-' + kind + '-v1';
@@ -528,11 +532,12 @@ const BampState = (() => {
   async function pull() {
     if (staticOnly) return pullSeed();
     try {
-      const r = await fetch(URL_, { cache: 'no-store', headers: { Accept: 'application/json' } });
+      const r = await fetch(BASE_URL + '.json', { cache: 'no-store', headers: { Accept: 'application/json' } });
       if (r.status === 404) { staticOnly = true; return pullSeed(); }
       if (!r.ok || !(r.headers.get('content-type') || '').includes('json')) throw 0;
-      const j = await r.json(); if (!j || typeof j.entries !== 'object') throw 0;
-      setMode('server'); merge(j.entries);
+      const j = await r.json();
+      setMode('server');
+      if (j && typeof j === 'object') merge(decTree(j));
       if (Object.keys(pending).length) push();
     } catch (e) { setMode('local'); }
   }
@@ -540,14 +545,20 @@ const BampState = (() => {
     if (staticOnly) { setMode('ghpages'); return; }
     const sent = pending; if (!Object.keys(sent).length) return;
     try {
-      const r = await fetch(URL_, { method: 'PUT', keepalive: !!keepalive, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ entries: sent }) });
-      if (!r.ok) throw 0;
-      for (const k of Object.keys(sent)) for (const id of Object.keys(sent[k])) {
-        if (pending[k] && pending[k][id] && pending[k][id].t === sent[k][id].t) delete pending[k][id];
+      for (const [k, subs] of Object.entries(sent)) {
+        const r = await fetch(BASE_URL + '/' + encKey(k) + '.json', {
+          method: 'PATCH',
+          keepalive: !!keepalive,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(encTree(subs))
+        });
+        if (!r.ok) throw 0;
+        for (const id of Object.keys(subs)) {
+          if (pending[k] && pending[k][id] && pending[k][id].t === subs[id].t) delete pending[k][id];
+        }
         if (pending[k] && !Object.keys(pending[k]).length) delete pending[k];
       }
       write(LSP, pending); setMode('server');
-      const j = await r.json().catch(() => null); if (j && j.entries) merge(j.entries);
     } catch (e) { setMode('local'); }
   }
   function get(kind, id) { const e = entries[KEY(kind)] && entries[KEY(kind)][id]; return e && !e.d && e.v ? e.v : {}; }
@@ -730,14 +741,18 @@ async function enrichCustomItem(tab, it, withOverlay = false) {
   try {
     let d = null;
     try {
-      const sr = await fetch(PUSH_API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'enrich', url: u })
-      });
-      if (sr.ok) {
-        const sj = await sr.json();
-        if (sj && sj.data) d = sj.data;
+      if (/reddit\.com|redd\.it/i.test(u)) {
+        const rr = await fetch('https://www.reddit.com/oembed?url=' + encodeURIComponent(u));
+        if (rr.ok) {
+          const rj = await rr.json();
+          if (rj && rj.title) d = { title: rj.title, author: rj.author_name || '', url: u };
+        }
+      } else if (/youtube\.com|youtu\.be/i.test(u)) {
+        const yr = await fetch('https://www.youtube.com/oembed?url=' + encodeURIComponent(u) + '&format=json');
+        if (yr.ok) {
+          const yj = await yr.json();
+          if (yj && yj.title) d = { title: yj.title, author: yj.author_name || '', image: yj.thumbnail_url ? { url: yj.thumbnail_url } : null, url: u };
+        }
       }
     } catch (e) {}
     if (!d) {
@@ -1421,7 +1436,7 @@ function saveSharedItem(rawInput, titleIn = '', noteIn = '', explicitTab = '', b
   return item;
 }
 
-const PUSH_API_URL = 'https://voipho-klober-crm.netlify.app/bamp/api/push';
+const PUSH_API_URL = 'https://klober-crm-sync-default-rtdb.firebaseio.com/bamp/push_subs.json';
 const VAPID_PUBLIC_KEY = 'BG1FAGowfWkAfyNXoJy2xumcWosFyh4PMuVTbTPQo4evWUgAoMXMldpuIvmlM9hVBJmEcd4FrUy6Is5cKvR-w54';
 function urlBase64ToUint8Array(base64String) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
@@ -1465,10 +1480,12 @@ async function enablePushNotifications(silent = false) {
       });
     }
     const user = getCurrentUser() || 'בר';
+    const subJson = sub && sub.toJSON ? sub.toJSON() : sub;
+    const subKey = encodeURIComponent((subJson && subJson.endpoint) || (user + '-' + devSig())).replace(/\./g, '%2E');
     await fetch(PUSH_API_URL, {
-      method: 'POST',
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'subscribe', user, subscription: sub })
+      body: JSON.stringify({ [subKey]: { user, subscription: subJson, updatedAt: Date.now() } })
     });
     updatePushBellUi();
     if (!silent) showToast('🔔 התראות פוש הופעלו (' + user + ')!');
@@ -1480,11 +1497,11 @@ async function enablePushNotifications(silent = false) {
 }
 function notifyPartnerPush(by, tab, id) {
   try {
-    fetch(PUSH_API_URL, {
-      method: 'POST',
+    fetch('https://klober-crm-sync-default-rtdb.firebaseio.com/bamp/last_push_event.json', {
+      method: 'PUT',
       keepalive: true,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'notify', by: by || getCurrentUser() || 'בר', tab, id })
+      body: JSON.stringify({ by: by || getCurrentUser() || 'בר', tab, id, t: Date.now() })
     }).catch(() => {});
   } catch (e) {}
 }
@@ -1549,7 +1566,7 @@ function notifyPartnerPush(by, tab, id) {
       document.querySelectorAll('[data-top-ws]').forEach(b => b.setAttribute('aria-pressed', b.dataset.topWs === target ? 'true' : 'false'));
       const vf = document.getElementById('voipho-inline-frame');
       if (target === 'voipho') {
-        if (vf && !vf.getAttribute('src')) vf.setAttribute('src', 'https://voipho-klober-crm.netlify.app/voipho/');
+        if (vf && !vf.getAttribute('src')) vf.setAttribute('src', 'voipho.html');
         document.body.classList.add('ws-voipho-mode');
       } else {
         document.body.classList.remove('ws-voipho-mode');
