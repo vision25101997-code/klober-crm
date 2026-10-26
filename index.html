@@ -176,25 +176,35 @@ textarea.notes:focus,.search:focus,.sel:focus{outline:2px solid var(--brand-ring
 .vid h3{margin:0;font-size:13px;font-weight:700;line-height:1.32;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden} .vid h3 a{color:var(--ink)} .vid h3 a:hover{color:var(--brand-d)}
 
 /* outreach */
-.or-list{display:grid;gap:12px}
-.or-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:grid;gap:10px;transition:.15s}
+.or-list{display:grid;gap:7px}
+.or-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;display:grid;gap:6px;transition:.15s}
 .or-card:hover{border-color:#254035;background:var(--card2)}
 .or-card.sent{border-color:rgba(22,196,127,.45);background:linear-gradient(180deg,rgba(22,196,127,.07),var(--card))}
-.or-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.or-plat{padding:3px 9px;border-radius:6px;background:rgba(255,69,0,.14);color:#FF6B35;font-weight:800;direction:ltr}
-.or-user{padding:3px 9px;border-radius:6px;background:#13231C;border:1px solid #213B30;color:#A7F3D0;font-weight:700;direction:ltr}
-.or-cat{padding:3px 9px;border-radius:6px;background:var(--ac-dim);color:var(--ac2);font-weight:600;font-size:11px}
-.or-card h3{margin:0;font-size:16px;line-height:1.4;direction:ltr;text-align:left}
+.or-main{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer}
+.or-info{min-width:0;flex:1;display:grid;gap:3px}
+.or-top{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11.5px;color:var(--muted)}
+.or-plat{padding:2px 7px;border-radius:5px;background:rgba(255,69,0,.14);color:#FF6B35;font-weight:800;font-size:11px;direction:ltr}
+.or-user{padding:2px 7px;border-radius:5px;background:#13231C;border:1px solid #213B30;color:#A7F3D0;font-weight:700;font-size:11px;direction:ltr}
+.or-cat{padding:2px 7px;border-radius:5px;background:var(--ac-dim);color:var(--ac2);font-weight:600;font-size:10.5px}
+.or-title-row{display:flex;align-items:baseline;gap:8px;min-width:0;flex-wrap:wrap}
+.or-card h3{margin:0;font-size:13.5px;font-weight:700;line-height:1.35;direction:ltr;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .or-card h3 a{color:var(--ink)}
-.or-note{margin:0;color:#D1FAE5;font-size:14px;line-height:1.55}
-.or-quote{margin:0;padding:9px 12px;background:#0C1410;border-inline-start:3px solid #FF6B35;border-radius:8px;font-size:12.5px;color:var(--muted);direction:ltr;text-align:left;line-height:1.5}
-.or-msg{background:#0B130F;border:1px dashed rgba(22,196,127,.35);border-radius:10px;padding:10px 12px;font-size:12.5px;color:#D1FAE5;direction:ltr;text-align:left;line-height:1.5}
-.or-ft{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--line);font-size:13px}
-.or-acts{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap}
-.or-btn{padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:#101915;color:var(--ink);font:inherit;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;text-decoration:none}
+.or-note{margin:0;color:#D1FAE5;font-size:12.5px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.or-card.open .or-note{-webkit-line-clamp:unset;overflow:visible}
+.or-card.open h3{white-space:normal}
+.or-acts{display:inline-flex;gap:5px;align-items:center;flex-shrink:0;flex-wrap:wrap}
+.or-btn{padding:4px 8px;border-radius:7px;border:1px solid var(--line);background:#101915;color:var(--ink);font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:4px;text-decoration:none;white-space:nowrap}
 .or-btn:hover{border-color:var(--ac);color:#fff;text-decoration:none}
 .or-btn.pri{background:rgba(22,196,127,.16);border-color:rgba(22,196,127,.45);color:#A7F3D0}
 .or-btn.sent-on{background:var(--ac);border-color:var(--ac);color:#04140D}
+.or-det{display:none;padding-top:8px;margin-top:4px;border-top:1px solid var(--line);gap:8px}
+.or-card.open .or-det{display:grid}
+.or-quote{margin:0;padding:7px 10px;background:#0C1410;border-inline-start:3px solid #FF6B35;border-radius:7px;font-size:12px;color:var(--muted);direction:ltr;text-align:left;line-height:1.45}
+.or-msg{background:#0B130F;border:1px dashed rgba(22,196,127,.35);border-radius:8px;padding:8px 10px;font-size:12px;color:#D1FAE5;direction:ltr;text-align:left;line-height:1.45}
+@media (max-width:680px){
+  .or-main{flex-direction:column;align-items:stretch;gap:7px}
+  .or-acts{justify-content:space-between;padding-top:4px;border-top:1px solid rgba(255,255,255,.04)}
+}
 
 /* sitelog */
 .slstrip{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:18px 0 14px;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);font-size:13px;color:var(--ink2)}
@@ -1059,28 +1069,33 @@ function viewOutreach() {
   const card = o => {
     const st = BampState.get('outreach', o.id) || {};
     const fav = !!st.fav, sent = !!st.sent;
-    return `<article class="or-card ${sent ? 'sent' : ''} ${manCls(o)}" data-id="${esc(o.id)}" style="position:relative;overflow:hidden">${enrichingIds.has(o.id) ? `<div class="card-kload">${K_LOADER_SVG}<span>מעלה פוסט…</span></div>` : ''}
-      <div class="or-top">
-        <span class="or-plat">${esc(o.platform || 'Reddit')} · ${esc(o.subreddit || 'r/AI')}</span>
-        ${o.author ? `<a class="or-user" href="${esc(o.authorUrl || o.url)}" target="_blank" rel="noopener noreferrer">👤 ${esc(o.author)}</a>` : ''}
-        ${o.painCategory ? `<span class="or-cat">${esc(o.painCategory)}</span>` : ''}
-        <span>${fmtDate(o.date || o.dateAdded)}</span>
-        ${manBadge(o)}
-      </div>
-      <h3>${link(o.url, `<bdi dir="ltr">${esc(o.title)}</bdi>`)}</h3>
-      ${o.summary ? `<p class="or-note"><b>התלונה:</b> ${esc(o.summary)}</p>` : ''}
-      ${o.quote ? `<blockquote class="or-quote">"${esc(o.quote)}"</blockquote>` : ''}
-      ${o.suggestedMessage ? `<div class="or-msg"><b>הודעה מוכנה לשליחה:</b><br>${esc(o.suggestedMessage)}</div>` : ''}
-      <div class="or-ft">
-        <div class="or-acts">
-          <a class="or-btn pri" href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">לפוסט ב-Reddit ↗</a>
-          ${o.dmUrl ? `<a class="or-btn" href="${esc(o.dmUrl)}" target="_blank" rel="noopener noreferrer">💬 שלח DM למשתמש ↗</a>` : ''}
-          ${o.suggestedMessage ? `<button type="button" class="or-btn" data-copy-msg="${esc(o.id)}">📋 העתק הודעה</button>` : ''}
+    const isOpen = !!(UI.orOpen && UI.orOpen[o.id]);
+    return `<article class="or-card ${sent ? 'sent' : ''} ${isOpen ? 'open' : ''} ${manCls(o)}" data-id="${esc(o.id)}" style="position:relative;overflow:hidden">${enrichingIds.has(o.id) ? `<div class="card-kload">${K_LOADER_SVG}<span>מעלה פוסט…</span></div>` : ''}
+      <div class="or-main" data-or-toggle="${esc(o.id)}">
+        <div class="or-info">
+          <div class="or-top">
+            <span class="or-plat">${esc(o.subreddit || 'Reddit')}</span>
+            ${o.author ? `<a class="or-user" href="${esc(o.authorUrl || o.url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">👤 ${esc(o.author)}</a>` : ''}
+            <span>${fmtDate(o.date || o.dateAdded)}</span>
+            ${manBadge(o)}
+          </div>
+          ${o.summary ? `<p class="or-note">${esc(o.summary)}</p>` : ''}
+          <h3><a href="${esc(o.url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"><bdi dir="ltr">${esc(o.title)}</bdi></a></h3>
         </div>
-        <div class="or-acts">
-          <button type="button" class="or-btn ${sent ? 'sent-on' : ''}" data-or-sent="${esc(o.id)}">${sent ? '✓ נשלחה הודעה' : 'סמן כנשלח'}</button>
-          <button type="button" class="delbtn" data-del="outreach" title="מחק פריט">🗑️</button>
-          <button class="fav" data-fav aria-pressed="${fav}">${fav ? '★' : '☆'}</button>
+        <div class="or-acts" onclick="event.stopPropagation()">
+          <a class="or-btn pri" href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">לפוסט ↗</a>
+          ${o.dmUrl ? `<a class="or-btn" href="${esc(o.dmUrl)}" target="_blank" rel="noopener noreferrer">💬 DM</a>` : ''}
+          ${o.suggestedMessage ? `<button type="button" class="or-btn" data-copy-msg="${esc(o.id)}">📋 העתק</button>` : ''}
+          <button type="button" class="or-btn ${sent ? 'sent-on' : ''}" data-or-sent="${esc(o.id)}">${sent ? '✓ נשלח' : 'סמן'}</button>
+          <button type="button" class="or-btn" data-or-toggle="${esc(o.id)}" title="פרטים נוספים">${isOpen ? '▴' : '▾'}</button>
+        </div>
+      </div>
+      <div class="or-det">
+        ${o.quote ? `<blockquote class="or-quote">"${esc(o.quote)}"</blockquote>` : ''}
+        ${o.suggestedMessage ? `<div class="or-msg"><b>הודעה מוכנה לשליחה:</b><br>${esc(o.suggestedMessage)}</div>` : ''}
+        <div style="display:flex;justify-content:flex-end;gap:6px">
+          <button type="button" class="delbtn" data-del="outreach" title="מחק פריט">🗑️ מחק</button>
+          <button class="fav" data-fav aria-pressed="${fav}">${fav ? '★ שמור' : '☆ שמור'}</button>
         </div>
       </div>
     </article>`;
