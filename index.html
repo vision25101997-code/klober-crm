@@ -400,6 +400,7 @@ body.ws-voipho-mode header.top,body.ws-voipho-mode main#app,body.ws-voipho-mode 
 #voipho-inline-frame{display:none;width:100%;height:calc(100dvh - 45px - env(safe-area-inset-top));border:0;background:#0A0A0A}
 body.ws-voipho-mode #voipho-inline-frame{display:block}
 
+.avlink{display:inline-flex;flex:none;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s,box-shadow .15s}.avlink:hover{transform:scale(1.06);box-shadow:0 0 0 2px var(--brand,#16C47F)}.avlink:active{transform:scale(.96)}
 </style>
 </head>
 <body>
@@ -963,6 +964,12 @@ function infFiltered() {
   });
 }
 
+function igUrl(i) {
+  const u = String(i.instagramUrl || i.url || '').trim();
+  if (/^https?:\/\/(www\.)?instagram\.com\//i.test(u)) return u;
+  const h = String(i.handle || '').replace(/^@/, '').trim();
+  return h ? `https://www.instagram.com/${encodeURIComponent(h)}/` : (u || '#');
+}
 function infCard(i) {
   const s = BampState.get('influencers', i.id), st = stOf(s.status);
   const fitCls = i.fitScore >= 8 ? 'hi' : i.fitScore >= 6 ? 'md' : 'lo';
@@ -972,7 +979,7 @@ function infCard(i) {
   const F = (label, html, cls = '') => `<div class="f ${cls}"><label>${label}</label><div>${html || '<span class="src">—</span>'}</div></div>`;
   return `<article class="card ${open ? 'open' : ''} ${manCls(i)}" data-id="${esc(i.id)}" style="position:relative">${enrichingIds.has(i.id) ? `<div class="card-kload" style="flex-direction:row;gap:12px">${K_LOADER_SVG}<span>מעלה משפיען…</span></div>` : ''}
     <button class="row" aria-expanded="${open}">
-      ${i.avatar ? `<img class="av" referrerpolicy="no-referrer" src="${esc(i.avatar)}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="av" style="display:none">${esc((i.name || '?').trim()[0])}</span>` : `<span class="av">${esc((i.name || '?').trim()[0])}</span>`}
+      <a class="avlink" href="${esc(igUrl(i))}" target="_blank" rel="noopener noreferrer" title="פתח פרופיל אינסטגרם" onclick="event.stopPropagation();event.preventDefault();window.open(this.href,'_blank','noopener')">${i.avatar ? `<img class="av" referrerpolicy="no-referrer" src="${esc(i.avatar)}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="av" style="display:none">${esc((i.name || '?').trim()[0])}</span>` : `<span class="av">${esc((i.name || '?').trim()[0])}</span>`}</a>
       <span class="who"><b>${esc(i.name)}${manBadge(i)}</b><small>${ltr(i.handle)}</small><span class="mst">${pill(st)} <span class="fit ${fitCls}">${i.fitScore == null ? '—' : i.fitScore}/10</span></span></span>
       <span class="niche">${esc(i.niche)}</span>
       <span class="fol">${fmtK(i.followers)}<small>עוקבים</small></span>
@@ -1213,6 +1220,7 @@ $('#app').addEventListener('click', e => {
     else if (f.dataset.f === 'flt') { UI.fltOpen = !UI.fltOpen; render(); return; }
     Prefs.set({ st: UI.st, aff: UI.aff, cf: UI.cf, gtmf: UI.gtmf, src: UI.src, manby: UI.manby, man: undefined }); render(); return;
   }
+  if (e.target.closest('.avlink')) return;
   const row = e.target.closest('.row');
   if (row) { const id = row.closest('.card').dataset.id; UI.open = UI.open === id ? null : id; render();
     const el = document.querySelector(`.card[data-id="${CSS.escape(id)}"]`); if (el && UI.open) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); return; }
