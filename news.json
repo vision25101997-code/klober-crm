@@ -2138,5 +2138,245 @@
   "whyMatters": "endue בונה כמעט את החזון של Klober: כמה סוכנים בחדר אחד, בחירת מודל אוטומטית וזיכרון חוצה-ערוצים. כדאי לעקוב אחריו כמתחרה קרוב וללמוד מהמוצר שלו.",
   "dateAdded": "2026-10-29",
   "id": "endue-call-your-agent-and-put-several-agents-to-work-in-one-"
+ },
+ {
+  "title": "OpenAI expands Dots: each Dot can now choose between GPT-6 Astra and GPT-6.1 Terra",
+  "source": "Frandroid",
+  "date": "2026-11-03",
+  "url": "https://www.frandroid.com/marques/openai/3308921_chatgpt-les-agents-ia-dots-deviennent-plus-puissants-et-encore-plus-autonomes",
+  "summary": "OpenAI עדכנה את ה-Dots, סוכני ה-AI שרצים על מחשב בענן ומתחברים לאלפי אפליקציות דרך ChatGPT. ב-2 בנובמבר הוכרז שה-Dots יתמכו בעוד מודלים, כולל GPT-6 Astra ו-GPT-6.1 Terra, ושה-Dot בוחר בעצמו את המודל המתאים. מאז סוף אוקטובר אפשר לדבר עם Dot גם מ-iMessage ומ-Google Messages.",
+  "whyMatters": "OpenAI מתקרבת לרעיון של Klober: בחירת מודל אוטומטית לפי המשימה וסוכן שעובד ברציפות. ההבדל הוא שזה נשאר בתוך המודלים של OpenAI בלבד, ו-Klober יכולה להציע צוות של מודלים מספקים שונים עם זיכרון משותף.",
+  "dateAdded": "2026-11-04",
+  "id": "openai-expands-dots-each-dot-can-now-choose-between-gpt-6-as"
+ },
+ {
+  "title": "NVIDIA and Meta to Expand Collaboration on Muse and Muse Family of Models Amid Robust Growth",
+  "source": "NVIDIA Newsroom",
+  "date": "2026-10-27",
+  "url": "https://nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth",
+  "summary": "NVIDIA ו-Meta הודיעו על הרחבת שיתוף הפעולה סביב Muse ומשפחת המודלים שלו, לשיפור ביצועי אימון והסקה. ההודעה מזכירה גם שיתוף פעולה אפשרי סביב NVIDIA OpenShell לפריסה בטוחה וניטור התנהגות סוכנים.",
+  "whyMatters": "הודעה על הורדות צרכניות גבוהות ל-Muse ועל השקעה בתשתית מראה את עוצמת המתחרה. יש כאן גם רמז לאבטחת סוכנים וניטור כנושא שחשוב ללקוחות ארגוניים של Klober.",
+  "dateAdded": "2026-11-04",
+  "id": "nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-fam-2"
+ },
+ {
+  "title": "Meta's Muse agent gains a signed ID in a quiet test, DataDome finds",
+  "source": "PPC Land",
+  "date": "2026-10-31",
+  "url": "https://ppc.land/metas-muse-agent-gains-a-signed-id-in-a-quiet-test-datadome-finds/",
+  "summary": "לפי DataDome, מאז כ-12 באוקטובר חלק מהבקשות של Muse ושל Meta-WebIndexer נחתמות (Web Bot Auth) בלי הודעה רשמית. החתימה מאפשרת לאתרים לזהות שהבקשה באמת של Meta, אבל עדיין מעט בקשות נושאות אותה.",
+  "whyMatters": "זיהוי וחתימה של סוכנים הופכים לתקן. אם סוכני Klober יגלשו או יפעלו באתרים בשם הלקוח, כדאי לבדוק תמיכה בחתימת בקשות כדי לא להיחסם כבוט.",
+  "dateAdded": "2026-11-04",
+  "id": "meta-s-muse-agent-gains-a-signed-id-in-a-quiet-test-datadome"
+ },
+ {
+  "title": "Unibase: Membase launches shared memory for AI agents and tools",
+  "source": "TradingView News",
+  "date": "2026-11-02",
+  "url": "https://www.tradingview.com/news/coinmarketcal:c3501cd08094b:0-unibase-membase-launches-shared-memory-for-ai-agents-and-tools-02-nov-2026/",
+  "summary": "Unibase השיקה ב-2 בנובמבר את Membase, שכבת זיכרון משותפת לסוכני AI וכלים. Claude Code, Cursor, Codex ו-ChatGPT יכולים לקרוא את אותו הזיכרון דרך SDK או MCP, כך שיש מקור הקשר משותף כשעובדים בין כלים.",
+  "whyMatters": "זה בדיוק רעיון הזיכרון המשותף של Klober, כשכבה נפרדת שמתחברת לכלים קיימים. כדאי לעקוב אחרי המסר והתמחור שלהם ולהבין איך Klober מתבדלת כחוויית צוות מלאה ולא רק שכבת זיכרון.",
+  "dateAdded": "2026-11-04",
+  "id": "unibase-membase-launches-shared-memory-for-ai-agents-and-too"
+ },
+ {
+  "title": "How to Share Memory Between Multiple AI Agents (2026 Guide)",
+  "source": "Membase",
+  "date": "2026-11-03",
+  "url": "https://membase.com/blog/how-to-share-memory-between-ai-agents",
+  "summary": "מדריך של Membase שמציג שלוש דרכים לתת לסוכנים זיכרון משותף: העברות (handoffs), מאגר של פריימוורק, או שכבת זיכרון משותפת. כולל הוראות התקנה עם מפתחות Membase, SDK ו-MCP.",
+  "whyMatters": "המדריך מראה איך השוק מסביר את הבעיה שאותה Klober פותרת, ואיזה מסרים עובדים אצל מפתחים. כדאי ללמוד ממנו ניסוח ל-SEO ולתוכן של Klober.",
+  "dateAdded": "2026-11-04",
+  "id": "how-to-share-memory-between-multiple-ai-agents-2026-guide"
+ },
+ {
+  "title": "Honeycomb Introduces AI SRE Agents That Go Beyond Incidents",
+  "source": "Honeycomb",
+  "date": "2026-11-03",
+  "url": "https://www.honeycomb.io/blog/honeycomb-introduces-ai-sre-agents",
+  "summary": "Honeycomb הכריזה על סוכני SRE מסוג Personal ו-Team, שפועלים לפי מטרות שהצוות מגדיר, לומדים מכל חקירה ופועלים רק בתוך גבולות שנקבעו. הסוכנים נועדו ללכת מעבר לטיפול באירועים.",
+  "whyMatters": "עוד חברה מוכיחה שהכיוון הוא סוכנים אישיים לצד סוכני צוות עם למידה מצטברת וגבולות פעולה ברורים. זה מאשש את הדגש של Klober על זיכרון משותף והרשאות.",
+  "dateAdded": "2026-11-04",
+  "id": "honeycomb-introduces-ai-sre-agents-that-go-beyond-incidents"
+ },
+ {
+  "title": "Marble Cognition raises $3.75M for its AI agent workers that watch and learn how people work",
+  "source": "SiliconANGLE",
+  "date": "2026-11-02",
+  "url": "https://siliconangle.com/2026/11/02/marble-cognition-raises-3-75m-for-its-ai-agent-workers-that-watch-and-learn-how-people-work/",
+  "summary": "Marble Cognition ממינכן גייסה 3.75 מיליון דולר ברמת pre-seed בהובלת Heartcore ו-Seedcamp, במקביל להשקה. הסטארטאפ בונה סוכנים שצופים בעבודה של עובדים ולומדים ממנה.",
+  "whyMatters": "סוכנים שלומדים איך אנשים עובדים הם כיוון משלים לזיכרון משותף. הגיוס הקטן מראה שיש עדיין מקום לשחקנים צעירים וש-Klober יכולה להתבלט בשלב מוקדם.",
+  "dateAdded": "2026-11-04",
+  "id": "marble-cognition-raises-3-75m-for-its-ai-agent-workers-that-"
+ },
+ {
+  "title": "Claude Duet app is Anthropic's bet on agents",
+  "source": "TechCrunch",
+  "date": "2026-10-22",
+  "url": "https://techcrunch.com/2026/10/22/claude-duet-app-is-anthropics-bet-on-agents/",
+  "summary": "Anthropic השיקה את Claude Duet, אפליקציית סוכן פרואקטיבי שמיועדת לאנשי מקצוע ולעסקים קטנים, כדי להתחרות ב-Meta Muse וב-Dots של OpenAI. הוא זמין ברשימת המתנה למנויי Pro ו-Max.",
+  "whyMatters": "גם Anthropic נכנסת למרוץ הסוכנים האישיים, וכך כל שלושת הספקים הגדולים מתחרים על אותה קטגוריה. Klober יכולה להציג את עצמה כשכבה ניטרלית שמחברת בין המודלים של כולם, במקום להיות נעולה על ספק אחד.",
+  "dateAdded": "2026-11-04",
+  "id": "claude-duet-app-is-anthropic-s-bet-on-agents"
+ },
+ {
+  "title": "Tana Launches Bring Your Own Agent To The Meeting: Your AI Agents Do The Work While You Talk",
+  "source": "Tana Labs (Mynewsdesk)",
+  "date": "2026-11-03",
+  "url": "https://www.mynewsdesk.com/tana/pressreleases/tana-launches-bring-your-own-agent-to-the-meeting-your-ai-agents-do-the-work-while-you-talk-3475270",
+  "summary": "Tana השיקה את Bring Your Own Agent, שמאפשר להכניס לפגישות את הסוכנים שהצוות כבר משתמש בהם, כמו Claude, ChatGPT, Mistral, Lovable ו-Gemini. המשתמשים מחברים את החשבונות הקיימים שלהם, וכל סוכן מצטרף עם החיבורים והכישורים שלו.",
+  "whyMatters": "המודל של להביא את הסוכנים והחשבונות שלך תואם את הגישה של Klober, שבה הלקוח מביא מפתחות API משלו. זה אישור שהשוק מתקדם לכיוון של צוות סוכנים משני ספקים.",
+  "dateAdded": "2026-11-04",
+  "id": "tana-launches-bring-your-own-agent-to-the-meeting-your-ai-ag"
+ },
+ {
+  "title": "Teamily AI Envisions the Next Internet: An Agentic, Social, and Appless World",
+  "source": "PR Newswire",
+  "date": "2026-11-03",
+  "url": "https://www.prnewswire.com/news-releases/teamily-ai-envisions-the-next-internet-an-agentic-social-and-appless-world-302927924.html",
+  "summary": "Teamily AI מפאלו אלטו הציגה חזון של אינטרנט שבו שירותים ועבודה מסופקים דרך סוכני AI במקום אפליקציות. המוצר הוא מסנג'ר שבו אנשים וסוכנים עובדים יחד כצוות אחד.",
+  "whyMatters": "Teamily מציעה מסנג'ר משותף לאנשים ולסוכנים, וזה קרוב לתפיסת צוות המודלים של Klober. כדאי לעקוב אחרי המוצר שלה כמתחרה פוטנציאלי.",
+  "dateAdded": "2026-11-04",
+  "id": "teamily-ai-envisions-the-next-internet-an-agentic-social-and"
+ },
+ {
+  "title": "AgentD: Coordinate Claude Code and Codex on One Project with LibraOS",
+  "source": "MegaNova blog",
+  "date": "2026-11-03",
+  "url": "https://blog.meganova.ai/agentd-coordinate-claude-code-and-codex-on-one-project-with-libraos/",
+  "summary": "AgentD מתאם בין Claude Code ל-Codex בפרויקט אחד, עם הקשר משותף, תוכניות מאושרות ובדיקות מאומתות. המטרה היא שכמה סוכני קוד יעבדו על אותו פרויקט בלי להתנגש.",
+  "whyMatters": "זה כלי ממוקד למפתחים שפותר חלק מבעיית התיאום בין מודלים שונים. Klober יכולה להרחיב את הרעיון לצוות סוכנים כללי עם זיכרון משותף, לא רק לקוד.",
+  "dateAdded": "2026-11-04",
+  "id": "agentd-coordinate-claude-code-and-codex-on-one-project-with-"
+ },
+ {
+  "title": "Redis Expands Redis Iris to Give AI Agents the Memory, Context, and Messaging They Need to Get to Production",
+  "source": "Redis (PRNewswire)",
+  "date": "2026-11-04",
+  "url": "https://redis.io/press/redis-expands-redis-iris-to-give-ai-agents-the-memory-context-and-messaging-they-need-to-get-to-production/",
+  "summary": "Redis הרחיבה את Redis Iris, מנוע ההקשר בזמן אמת לסוכני AI, לשישה רכיבים: Intent Router, Agent Playbooks, Agent Memory, Context Gateway, Lens ו-Agent Mesh. Agent Memory בונה זיכרונות מפעולות משתמש ומסמכים, כולל ביקורת ומקור, ו-Agent Mesh נותן לסוכנים ערוץ אמין להעברת משימות ביניהם. Intent Router גם מנתב בקשות בין סוכנים ומודלים.",
+  "whyMatters": "זו תשתית ענן שמוכרת בדיוק את מה ש-Klober בונה כמוצר: זיכרון משותף, ניתוב בין מודלים והעברת עבודה בין סוכנים. היא מראה שהשוק מזהה את הצורך, ושווה לחדד איך Klober שונה בכך שהיא מוצר סופי לצוותים ולא רכיב תשתית למפתחים.",
+  "dateAdded": "2026-11-05",
+  "id": "redis-expands-redis-iris-to-give-ai-agents-the-memory-contex"
+ },
+ {
+  "title": "Unified Brain Replaces Turn-Based LLM Agents with SQLite",
+  "source": "Emergent News",
+  "date": "2026-11-03",
+  "url": "https://emergent.sh/news/unified-brain-replaces-turn-based-llm-agents",
+  "summary": "DevLoops.ai פרסמה את Unified Brain, מסגרת קוד פתוח שבה כמה סוכני LLM מתאמים עבודה דרך מסד SQLite משותף במקום להמתין לתורם בשיחה. כל סוכן קורא משימות מהמסד, מבצע ומעדכן תוצאות, והמסד משמש גם יומן ביקורת. ההשקה הייתה ב-3 בנובמבר 2026.",
+  "whyMatters": "הרעיון של מצב משותף במקום שיחה בתורות הוא בדיוק הכיוון של Klober: כמה מודלים שעובדים כצוות על אותו הקשר. כדאי לשים לב לטענה על ריצה מקבילית ויומן ביקורת, כי אלה יכולות שלקוחות יצפו לראות גם בצוות מודלים של Klober.",
+  "dateAdded": "2026-11-05",
+  "id": "unified-brain-replaces-turn-based-llm-agents-with-sqlite"
+ },
+ {
+  "title": "PhoenixAI Launches Contextbase, the Context Infrastructure for AI Agents",
+  "source": "PRNewswire",
+  "date": "2026-11-04",
+  "url": "https://www.prnewswire.com/news-releases/phoenixai-launches-contextbase-the-context-infrastructure-for-ai-agents-302929251.html",
+  "summary": "PhoenixAI, יוצרת StarRocks, השיקה את Contextbase, מערכת מנוהלת אחת שמחזיקה סמנטיקה, ידע, זיכרון, עקבות והערכות לכל הסוכנים. כל סוכן קורא וכותב אליה, והיא יושבת על אותו אשכול כמו נתוני העסק. היא זמינה כ-private preview מה-4 בנובמבר.",
+  "whyMatters": "עוד שחקן שמציג זיכרון משותף וניתן לביקורת כשכבה מרכזית לסוכנים, אבל בגרסת ארגון ונתונים. ל-Klober זה סימן שזיכרון משותף הוא הנכס שמבדל, ושעל הלקוחות לראות מה נשמר ולשלוט בזה.",
+  "dateAdded": "2026-11-05",
+  "id": "phoenixai-launches-contextbase-the-context-infrastructure-fo"
+ },
+ {
+  "title": "Introducing the MongoDB Google ADK Integration: Durable Memory for Agent State",
+  "source": "MongoDB Blog",
+  "date": "2026-11-04",
+  "url": "https://www.mongodb.com/company/blog/product-release-announcements/introducing-mongodb-google-adk-integration-durable-memory-agent-state",
+  "summary": "MongoDB הכריזה על אינטגרציה עם Google ADK 2.0 שמוסיפה זיכרון עמיד למצב סוכנים. MongoDbSessionService שומר סשנים, אירועים ומצב לפי אפליקציה, משתמש וסשן, כולל בקרת מקביליות. ADK 2.0 משמשת כשכבת התזמור למערכות מרובות סוכנים.",
+  "whyMatters": "זיכרון שנשמר מעבר להפעלה מחדש הוא דרישה בסיסית לצוות סוכנים. Klober יכולה להשתמש במסר הזה מול לקוחות: ההיסטוריה והזיכרון שלהם נשמרים גם כשמחליפים מודל או סשן.",
+  "dateAdded": "2026-11-05",
+  "id": "introducing-the-mongodb-google-adk-integration-durable-memor"
+ },
+ {
+  "title": "Adobe Integrates Agentic CX Enterprise Coworker Into AI Platforms from Anthropic, Google, Microsoft, OpenAI and More",
+  "source": "Adobe Newsroom",
+  "date": "2026-11-04",
+  "url": "https://news.adobe.com/news/2026/11/adobe-integrates-agentic-cx-enterprise-coworker-into-ai-platforms",
+  "summary": "Adobe הודיעה ש-CX Enterprise Coworker, עמית סוכני לניהול חוויית לקוח, זמין עכשיו בתוך ChatGPT, Claude, Databricks Genie, Gemini for business ו-Microsoft Copilot. החיבור נעשה דרך מחברי MCP מוכנים, ו-AWS, IBM ו-Snowflake אמורים להצטרף. אינטגרטורים וסוכנויות גדולים כבר בונים עליו פתרונות.",
+  "whyMatters": "חברה גדולה בוחרת להופיע בתוך כמה פלטפורמות מודלים במקום להיקשר לאחת, כלומר העבודה מעל מודלים שונים הופכת לנורמה. זה מחזק את הנרטיב של Klober, אבל גם מראה שספקי תוכנה מובילים מגיעים אל המודלים ישירות.",
+  "dateAdded": "2026-11-05",
+  "id": "adobe-integrates-agentic-cx-enterprise-coworker-into-ai-plat"
+ },
+ {
+  "title": "Salesforce's Agentforce Coworker Usage Soars 21x in Three Months as Enterprises Delegate Real Work to AI",
+  "source": "Salesforce News",
+  "date": "2026-11-04",
+  "url": "https://www.salesforce.com/news/stories/agentforce-coworker-surpasses-185k-users/",
+  "summary": "Salesforce מדווחת ש-Agentforce Coworker עברה 185,000 משתמשים, גידול של פי 21 בשלושה חודשים. נוספו Skills לשימוש חוזר, Conversation History להמשך מאותה נקודה ותמחור של 50 דולר למשתמש בחודש. בנובמבר הוא יגיע ל-Microsoft Teams, לנייד ולדסקטופ.",
+  "whyMatters": "עמית AI שמקבל משימות ומחזיר תוצאות לאישור כבר נמכר בהיקף גדול ובמחיר ברור למשתמש. ל-Klober זה נקודת ייחוס לתמחור ולציפיות: Skills וזיכרון שיחות הם כבר תכונות סטנדרטיות של עמית AI.",
+  "dateAdded": "2026-11-05",
+  "id": "salesforce-s-agentforce-coworker-usage-soars-21x-in-three-mo"
+ },
+ {
+  "title": "Snowflake CoCo and CoWork Power the Agentic Enterprise",
+  "source": "Snowflake Press Release",
+  "date": "2026-11-03",
+  "url": "https://www.snowflake.com/en/news/press-releases/expedition-2026-coco-cowork/",
+  "summary": "בכנס Expedition 2026 הציגה Snowflake עדכונים ל-CoCo (סוכן קוד לצוותי נתונים) ול-CoWork (סוכן עבודה אישי). Bots חדשים פועלים ברקע כעמיתים תמידיים, יורשים את ההרשאות של המשתמש וחוזרים רק כשצריך אישור. נוספו גם אוטומציות מתוזמנות עם יומן ריצות ושילוב ב-Slack.",
+  "whyMatters": "עמיתי AI שעובדים ברקע ופונים רק לאישור הם הכיוון שבו Klober מדברת על צוות מודלים. כדאי ללמוד מהדגש על הרשאות, יומן ביקורת ואפשרות להשהות או להריץ מחדש.",
+  "dateAdded": "2026-11-05",
+  "id": "snowflake-coco-and-cowork-power-the-agentic-enterprise"
+ },
+ {
+  "title": "Smartsheet Adds New AI Agents, Integrations and Security Advancements at ENGAGE 2026",
+  "source": "Smartsheet",
+  "date": "2026-11-04",
+  "url": "https://www.smartsheet.com/content-center/news/smartsheet-adds-new-ai-agents-integrations-and-security-advancements-engage",
+  "summary": "Smartsheet הציגה ב-ENGAGE 2026 תהליכי עבודה סוכניים וסוכנים ייעודיים, כמו Creation Agent ו-Data Quality Agent. בקשה בשפה חופשית הופכת למשימה חוזרת שרצה לבד ומעבירה תוצאות לאנשים הנכונים. הסוכנים עובדים על נתוני הפרויקט החיים ובהרשאות הקיימות.",
+  "whyMatters": "גם כלי ניהול עבודה רגילים הופכים לצוותי סוכנים עם משימות חוזרות. Klober צריכה להבהיר ללקוחות מה היתרון של צוות מודלים שלהם שעובד לפי מפתחות ה-API שלהם, לעומת סוכנים סגורים בתוך כלי אחד.",
+  "dateAdded": "2026-11-05",
+  "id": "smartsheet-adds-new-ai-agents-integrations-and-security-adva"
+ },
+ {
+  "title": "Tana lets your Claude and ChatGPT agents do the work mid-meeting",
+  "source": "Dealroom News",
+  "date": "2026-11-03",
+  "url": "https://dealroom.co/news/169135-tana-lets-your-claude-and-chatgpt-agents-do-the-work-mid-meeting/",
+  "summary": "Tana השיקה Bring Your Own Agent, שמאפשר להכניס לשיחות וידאו סוכנים קיימים כמו Claude, ChatGPT, Mistral, Lovable ו-Gemini. כל סוכן מגיע עם המחברים, היכולות והזיכרון שלו, מקבל את התמלול ומה שמוצג על המסך, ופועל רק אחרי אישור. זה עובד לצד Zoom, Teams ו-Google Meet.",
+  "whyMatters": "Tana מאמצת את הגישה של הבאת הסוכנים שכבר יש ללקוח, בלי לספק מודל משלה. זה קרוב מאוד לגישה של Klober שבה הלקוח מכניס מפתחות API קיימים, ומראה שיש ביקוש למוצר שמחבר כמה מודלים במקום אחד.",
+  "dateAdded": "2026-11-05",
+  "id": "tana-lets-your-claude-and-chatgpt-agents-do-the-work-mid-mee"
+ },
+ {
+  "title": "ChatGPT Dots are about to get a lot more capable",
+  "source": "Android Authority",
+  "date": "2026-11-03",
+  "url": "https://www.androidauthority.com/openai-chatgpt-dots-update-3731008/",
+  "summary": "OpenAI מרחיבה את המודלים שמפעילים את ChatGPT Dots, כולל GPT-6 Astra ו-GPT-6.1 Terra. לפי מהנדס ב-OpenAI, Dots יבחרו אוטומטית את המודל המתאים לכל משימה ואפילו יעברו בין מודלים בחלקים שונים של אותה משימה. אפשר גם לשוחח עם Dot דרך Google Messages ו-iMessage.",
+  "whyMatters": "בחירה אוטומטית של מודל לכל משימה היא בדיוק ההבטחה של Klober, אבל OpenAI עושה אותה רק בתוך מודלים שלה. ל-Klober יש טיעון ברור מול Dots: ניתוב בין מודלים של ספקים שונים עם זיכרון אחד.",
+  "dateAdded": "2026-11-05",
+  "id": "chatgpt-dots-are-about-to-get-a-lot-more-capable"
+ },
+ {
+  "title": "Meta's Muse launches in Singapore",
+  "source": "PhocusWire",
+  "date": "2026-11-02",
+  "url": "https://www.phocuswire.com/news/technology/metas-muse-launches-in-singapore",
+  "summary": "Meta השיקה את Muse, סוכן ה-AI האישי שלה, בסינגפור עם חיבורים מקומיים כמו Shopee, Grab, Singapore Airlines ו-Agoda. Muse רץ על מכונה וירטואלית ייעודית שמחזיקה את הנתונים והסיסמאות, ומבקש אישור לפני פעולות רגישות. הוא חינמי לרוב השימושים, עם מסלולי תשלום לתכונות נוספות.",
+  "whyMatters": "Muse ממשיך להתרחב לשווקים חדשים ולבנות רשת מחברים מקומית, מה שמדגים את היתרון של הפצה של Meta. Klober צריכה להתמקד בקהל שרוצה שליטה על המודלים ועל הנתונים, ולא להתחרות על הפצה צרכנית.",
+  "dateAdded": "2026-11-05",
+  "id": "meta-s-muse-launches-in-singapore"
+ },
+ {
+  "title": "Meta Shares Top Muse Bug Bounty Findings as Payouts Reach $1.2 Million",
+  "source": "SecurityWeek",
+  "date": "2026-11-04",
+  "url": "https://www.securityweek.com/meta-shares-top-muse-bug-bounty-findings-as-payouts-reach-1-2-million/",
+  "summary": "Meta שילמה כ-1.2 מיליון דולר בפרסי באגים על Muse, כולל 300,000 דולר על פגם שחשף שיחות ואסימונים במכונות בדיקה פנימיות. בין הממצאים: דף אינטרנט זדוני שגרם לסוכן לבצע פעולות, ופורמט שעקף סינון של קודים חד-פעמיים. Meta הוסיפה זיהוי לתקיפות מסוג זה ושינתה את הטיפול בפלט כלים חשוד.",
+  "whyMatters": "סוכן שפועל בשם המשתמש הוא יעד תקיפה, במיוחד הזרקת הוראות דרך תוכן ומפתחות שמורים. Klober שמחזיקה מפתחות API של לקוחות צריכה להציג אבטחה, הצפנה והגבלת הרשאות כחלק מרכזי בהצעה.",
+  "dateAdded": "2026-11-05",
+  "id": "meta-shares-top-muse-bug-bounty-findings-as-payouts-reach-1-"
+ },
+ {
+  "title": "Meta's Muse AI agent reached 10 million U.S. downloads in 40 days",
+  "source": "Quartz",
+  "date": "2026-11-04",
+  "url": "https://qz.com/meta-muse-ai-agent-10-million-downloads-110426",
+  "summary": "לפי CNN ו-Sensor Tower, Muse של Meta הגיע ל-10 מיליון הורדות בארה\"ב ב-40 הימים הראשונים. הכתבה מציינת ש-OpenAI, Meta ו-Anthropic השיקו לאחרונה סוכנים (Dots, Muse ו-Claude Duet). CNN גם בודקת מה משתמשים חושבים על כמה הסוכן מכיר אותם ומה הוא זוכר.",
+  "whyMatters": "הביקוש לסוכן אישי עם זיכרון הוכח בקנה מידה גדול, והשאלה של משתמשים כמה הסוכן זוכר עליהם מתחילה לעניין את התקשורת. ל-Klober יש הזדמנות להציג שקיפות ושליטה בזיכרון כיתרון.",
+  "dateAdded": "2026-11-05",
+  "id": "meta-s-muse-ai-agent-reached-10-million-u-s-downloads-in-40-"
  }
 ]

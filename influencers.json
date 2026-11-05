@@ -24115,5 +24115,777 @@
   "affiliateEvidence": [],
   "location": "United States (Influencer Hero)",
   "dateAdded": "2026-10-29"
+ },
+ {
+  "name": "Kellyn McMullan",
+  "handle": "@kellyn_melon",
+  "instagramUrl": "https://www.instagram.com/kellyn_melon/",
+  "followers": 23000,
+  "followersText": "23K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "ארגון דיגיטלי ו-OneNote",
+  "contentStyle": "מדריכים ותבניות ל-Microsoft OneNote וארגון דיגיטלי (לפי Modash)",
+  "contactEmail": "",
+  "linkInBio": "https://kellynmelon.com/",
+  "hasAffiliate": true,
+  "whyFit": "יוצרת תוכן על ארגון דיגיטלי ותבניות OneNote, ובעלת קהל שמחפש כלים לפרודוקטיביות. מתאימה להצגת Klober כמקום אחד לכל המודלים וההיסטוריה.",
+  "fitScore": 7,
+  "id": "kellyn_melon",
+  "followersSource": "IG live check (curl og:description) 2026-11-04",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Modash",
+    "url": "https://www.modash.io/find-influencers/productivity/female/affiliates"
+   }
+  ],
+  "affiliateEvidence": [
+   {
+    "brand": "Modash – רשימת Affiliates בפרודוקטיביות",
+    "note": "מופיעה ברשימת יוצרי Affiliate אמריקאים",
+    "url": "https://www.modash.io/find-influencers/productivity/female/affiliates"
+   }
+  ],
+  "location": "United States (Modash US list)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "Neda | Digital Planning",
+  "handle": "@milliondollarhabit",
+  "instagramUrl": "https://www.instagram.com/milliondollarhabit/",
+  "followers": 158500,
+  "followersText": "158.5K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "תבניות Notion ותכנון דיגיטלי",
+  "contentStyle": "תבניות GoodNotes, OneNote ו-Notion לתכנון ופרודוקטיביות (לפי PicMany ואתר העסק)",
+  "contactEmail": "",
+  "linkInBio": "https://www.milliondollarhabit.com/",
+  "hasAffiliate": true,
+  "whyFit": "יוצרת תבניות Notion ותכנון דיגיטלי עם עסק מוכר ו-45,000+ לקוחות. קהל פרודוקטיביות שמתאים ל-Klober כמרכז עבודה לצוות מודלים עם זיכרון משותף.",
+  "fitScore": 7,
+  "id": "milliondollarhabit",
+  "followersSource": "PicMany 2026-11-01: https://picmany.com/milliondollarhabit",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "PicMany",
+    "url": "https://picmany.com/milliondollarhabit"
+   },
+   {
+    "name": "אתר",
+    "url": "https://www.milliondollarhabit.com/"
+   }
+  ],
+  "affiliateEvidence": [
+   {
+    "brand": "Notion Marketplace",
+    "note": "מוכרת תבניות במרקטפלייס של Notion",
+    "url": "https://www.notion.com/@milliondollarhabit"
+   }
+  ],
+  "location": "United States (Modash US productivity list)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "Ben Kimball",
+  "handle": "@benkimball.ai",
+  "instagramUrl": "https://www.instagram.com/benkimball.ai/",
+  "followers": 49120,
+  "followersText": "49.1K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "כלי AI ואוטומציה ליוצרים",
+  "contentStyle": "כלי AI, אוטומציה ומערכות תוכן לעסקים ויוצרים (לפי PicMany ו-LinkedIn)",
+  "contactEmail": "",
+  "linkInBio": "https://www.linkedin.com/in/benjamin-kimball-788a9a294",
+  "hasAffiliate": false,
+  "whyFit": "מלמד יוצרים ועסקים להשתמש ב-AI לתוכן ולאוטומציה, ולכן ידבר בטבעיות על Klober כצוות מודלים עם זיכרון משותף.",
+  "fitScore": 9,
+  "id": "benkimball.ai",
+  "followersSource": "PicMany 2026-11-03: https://picmany.com/benkimball.ai",
+  "engagementEstimate": "0.9%",
+  "engagementNote": "שיעור מעורבות לפי Scrumball",
+  "engagementSource": "Scrumball US ranking",
+  "avgViews": "12.1K",
+  "avgViewsSource": "Scrumball US ranking",
+  "platforms": [
+   {
+    "name": "PicMany",
+    "url": "https://picmany.com/benkimball.ai"
+   },
+   {
+    "name": "LinkedIn",
+    "url": "https://www.linkedin.com/in/benjamin-kimball-788a9a294"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Scrumball tag)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "Levi Okoye",
+  "handle": "@levi.dev__",
+  "instagramUrl": "https://www.instagram.com/levi.dev__/",
+  "followers": 10077,
+  "followersText": "10.1K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "הנדסת תוכנה וקריירה",
+  "contentStyle": "מהנדס תוכנה מסינסינטי: קוד, AI, שוק העבודה וקריירה (לפי CreatorDB)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "מהנדס תוכנה שיוצר תוכן על קוד ו-AI, עם קהל של מפתחים צעירים. נשמע מתאים לנסות את Klober ככלי עבודה עם כמה מודלים.",
+  "fitScore": 6,
+  "id": "levi.dev__",
+  "followersSource": "CreatorDB 2026-11-04: https://creatordb.app/creatorstats/levidev__/",
+  "engagementEstimate": "2.8%",
+  "engagementNote": "שיעור מעורבות לפי Scrumball",
+  "engagementSource": "Scrumball US ranking",
+  "avgViews": "1.8K",
+  "avgViewsSource": "Scrumball US ranking",
+  "platforms": [
+   {
+    "name": "CreatorDB",
+    "url": "https://creatordb.app/creatorstats/levidev__/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "Cincinnati, USA (CreatorDB)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "The Setup Blaze",
+  "handle": "@setup.blaze",
+  "instagramUrl": "https://www.instagram.com/setup.blaze/",
+  "followers": 54611,
+  "followersText": "54.6K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "סטאפים, קוד ו-AI",
+  "contentStyle": "השראה לסטאפים ולמחשב, תכנות ותוכן AI (לפי Scrollify)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "עמוד השראה לסטאפים, תכנות ו-AI עם קהל בארה\"ב. מתאים להצגת Klober בפני אנשים שאוהבים כלי עבודה וטכנולוגיה.",
+  "fitScore": 6,
+  "id": "setup.blaze",
+  "followersSource": "Scrollify 2026-11-04: https://www.scrollify.org/profile/setup-blaze/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Scrollify",
+    "url": "https://www.scrollify.org/profile/setup-blaze/"
+   },
+   {
+    "name": "רשימת Scrollify",
+    "url": "https://www.scrollify.org/spotlight/popular-ai-influencers-instagram-united-states/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Scrollify)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "Professor Glitch",
+  "handle": "@professorglitch.automation",
+  "instagramUrl": "https://www.instagram.com/professorglitch.automation/",
+  "followers": 15300,
+  "followersText": "15.3K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "אוטומציית AI (n8n, סוכנים)",
+  "contentStyle": "מלמד אוטומציית AI עם n8n, RAG, סוכני AI ו-Claude Code (לפי אתר ו-LinkedIn)",
+  "contactEmail": "",
+  "linkInBio": "https://www.askglitch.com/",
+  "hasAffiliate": false,
+  "whyFit": "מורה לאוטומציית AI בשיקגו שמלמד סוכנים ו-n8n, כולל קהילה בתשלום. Klober מתאימה לקהל שלו כצוות סוכנים עם זיכרון משותף.",
+  "fitScore": 9,
+  "id": "professorglitch.automation",
+  "followersSource": "Instagram search result snippet 2026-11-04 (15.3K, verified account)",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "אתר",
+    "url": "https://www.askglitch.com/"
+   },
+   {
+    "name": "LinkedIn",
+    "url": "https://linkedin.com/in/professor-glitch"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "Chicago, USA (LinkedIn)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "Ebere Oyekwe",
+  "handle": "@nelotechie",
+  "instagramUrl": "https://www.instagram.com/nelotechie/",
+  "followers": 89800,
+  "followersText": "89.8K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "טק, דאטה ו-AI",
+  "contentStyle": "טק, דאטה ו-AI בצורה פשוטה, עם ניוזלטר (bio: Built Realworld Data & AI Solutions, 📍US)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "מסבירה טק, דאטה ו-AI בצורה נגישה ומריצה ניוזלטר, ולכן יכולה להציג את Klober כצוות מודלים עם זיכרון משותף. מספר העוקבים לפי Feedspot מ-16 בספטמבר ולא נבדק ישירות באינסטגרם.",
+  "fitScore": 8,
+  "id": "nelotechie",
+  "followersSource": "Feedspot Tech Micro list (updated 2026-09-16): https://influencers.feedspot.com/tech_micro_instagram_influencers/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Feedspot",
+    "url": "https://influencers.feedspot.com/tech_micro_instagram_influencers/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "US (bio pin, Feedspot)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "AI / Tech Updates",
+  "handle": "@ainterestingupdate",
+  "instagramUrl": "https://www.instagram.com/ainterestingupdate/",
+  "followers": 190000,
+  "followersText": "190K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "חדשות ו-AI",
+  "contentStyle": "עמוד עדכוני AI וטק עם מדריך ChatGPT חינמי (לפי Hive)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": true,
+  "whyFit": "עמוד חדשות AI עם קהל גדול ומדריך חינמי בתוך ה-bio, כלומר בנוי להפנות לכלים ולמוצרים. מתאים לשיתוף פעולה סביב Klober, אבל מספר העוקבים לפי Hive ולא נבדק ישירות.",
+  "fitScore": 8,
+  "id": "ainterestingupdate",
+  "followersSource": "Hive Influence US AI list (Oct 2026): https://hiveinfluence.io/top-influencers/instagram/artificial-intelligence/united-states",
+  "engagementEstimate": "0.17%",
+  "engagementNote": "שיעור מעורבות לפי Hive Influence",
+  "engagementSource": "Hive Influence US AI list",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Hive Influence",
+    "url": "https://hiveinfluence.io/top-influencers/instagram/artificial-intelligence/united-states"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Hive Influence)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "AI | Artificial Intelligence | Tech | Business",
+  "handle": "@ai.contenthub",
+  "instagramUrl": "https://www.instagram.com/ai.contenthub/",
+  "followers": 109000,
+  "followersText": "109K",
+  "followersCheckedDate": "2026-11-04",
+  "niche": "AI, טק ועסקים",
+  "contentStyle": "עמוד תוכן על AI, טכנולוגיה ועסקים (לפי Hive)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "עמוד תוכן שמכסה AI, טק ועסקים לקהל אמריקאי. Klober יכולה להיכנס לתוכן שלו כהצגה של צוות מודלים עם זיכרון משותף. מספר העוקבים לפי Hive ולא נבדק ישירות.",
+  "fitScore": 6,
+  "id": "ai.contenthub",
+  "followersSource": "Hive Influence US AI list (Oct 2026): https://hiveinfluence.io/top-influencers/instagram/artificial-intelligence/united-states",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Hive Influence",
+    "url": "https://hiveinfluence.io/top-influencers/instagram/artificial-intelligence/united-states"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Hive Influence)",
+  "dateAdded": "2026-11-04"
+ },
+ {
+  "name": "Aivars Meijers",
+  "handle": "@aivars_meijers",
+  "instagramUrl": "https://www.instagram.com/aivars_meijers/",
+  "followers": 100000,
+  "followersText": "100K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "בניית אפליקציות ופרודוקטיביות",
+  "contentStyle": "בונה אפליקציית Focus Lock (חסימת הסחות לאנשים עם ADHD) ומדבר על קוד וכלי פרודוקטיביות",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "מפתח-יוצר אמריקאי שבונה מוצר תוכנה משלו וחושף אותו לקהל טכנולוגי. Klober יכולה להיכנס לתוכן שלו כהדגמה של צוות מודלים שעובד עם זיכרון משותף על פרויקט אמיתי.",
+  "fitScore": 7,
+  "id": "aivars_meijers",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/aivars_meijers/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Socialveins",
+    "url": "https://socialveins.com/influencers/lists/programming-influencers-instagram"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "Los Angeles, United States (Socialveins)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Justin Chau",
+  "handle": "@chau_codes",
+  "instagramUrl": "https://www.instagram.com/chau_codes/",
+  "followers": 54000,
+  "followersText": "54K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "קוד, קריירה בטק ולייפסטייל",
+  "contentStyle": "מהנדס תוכנה מאזור הביי שמעלה תוכן על קוד וקריירה, ומשלב קופוני שיתוף פעולה בביו",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "מהנדס תוכנה אמריקאי עם קהל של מפתחים צעירים, כבר עובד עם שיתופי פעולה בתשלום (קופון בביו). מתאים להצגה של Klober כצוות מודלים שמסייע בעבודת קוד.",
+  "fitScore": 7,
+  "id": "chau_codes",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/chau_codes/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Socialveins",
+    "url": "https://socialveins.com/influencers/lists/programming-influencers-instagram"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Socialveins; ביו: Bay Area)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Nina | Coder | Tech",
+  "handle": "@gowsami.dev",
+  "instagramUrl": "https://www.instagram.com/gowsami.dev/",
+  "followers": 151000,
+  "followersText": "151K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "פיתוח פרונטאנד ופול-סטאק",
+  "contentStyle": "תוכן קצר על JavaScript, React ו-Next.js למפתחים מתחילים",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצרת טכנולוגיה מארה\"ב עם קהל גדול של מפתחים מתחילים. Klober יכולה להיכנס לתוכן שלה כצוות מודלים שעוזר לכתוב וללמוד קוד.",
+  "fitScore": 6,
+  "id": "gowsami.dev",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/gowsami.dev/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Socialveins",
+    "url": "https://socialveins.com/influencers/lists/programming-influencers-instagram"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Socialveins)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Marko Filipovic",
+  "handle": "@automatewithmarko",
+  "instagramUrl": "https://www.instagram.com/automatewithmarko/",
+  "followers": 66000,
+  "followersText": "66K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "אוטומציה ו-AI לעסקים",
+  "contentStyle": "מדריכי אוטומציה וסוכני AI, כולל יצירת UGC באמצעות AI",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצר אוטומציות ו-AI מסיאטל שמפיץ מדריכים לבעלי עסקים. קהל שמחפש כלים שמחברים מודלים ביחד, ולכן Klober (צוות מודלים עם זיכרון משותף) מתאימה לו מאוד.",
+  "fitScore": 9,
+  "id": "automatewithmarko",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/automatewithmarko/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Apify top AI Instagram creators + בדיקת מיקום בחיפוש",
+    "url": "https://blog.apify.com/top-ai-instagram-influencers/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "Greater Seattle Area, United States (LinkedIn/חיפוש)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Natan Mohart",
+  "handle": "@natan_mohart",
+  "instagramUrl": "https://www.instagram.com/natan_mohart/",
+  "followers": 195000,
+  "followersText": "195K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "AI, חשיבה רגשית ומנהיגות",
+  "contentStyle": "תוכן על בינה מלאכותית ובינה רגשית, חשיבה אסטרטגית ופיתוח אישי",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יזם טכנולוגיה מניו יורק שמדבר על AI עם קהל של מנהיגים ויזמים. Klober יכולה להיות זווית לתוכן על שיתוף פעולה בין אדם למספר מודלים.",
+  "fitScore": 6,
+  "id": "natan_mohart",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/natan_mohart/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Apify top AI Instagram creators + בדיקת מיקום בחיפוש",
+    "url": "https://blog.apify.com/top-ai-instagram-influencers/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "New York, United States (LinkedIn/חיפוש)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Divyanshi Sharma",
+  "handle": "@divyannshisharma",
+  "instagramUrl": "https://www.instagram.com/divyannshisharma/",
+  "followers": 118000,
+  "followersText": "118K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "AI, לידים ו-GTM",
+  "contentStyle": "משאבי AI חינמיים ומערכות אוטומציה ללידים ו-GTM",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "מומחית AI ו-GTM מניו יורק שמפיצה מערכות אוטומציה לעסקים. Klober יכולה להיכנס לתוכן שלה כצוות מודלים שמריץ תהליכי GTM עם זיכרון משותף.",
+  "fitScore": 8,
+  "id": "divyannshisharma",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/divyannshisharma/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Apify top AI Instagram creators + בדיקת מיקום בחיפוש",
+    "url": "https://blog.apify.com/top-ai-instagram-influencers/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "New York, United States (LinkedIn/חיפוש)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Cassie Kozyrkov",
+  "handle": "@decisionleader",
+  "instagramUrl": "https://www.instagram.com/decisionleader/",
+  "followers": 10000,
+  "followersText": "10K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "AI וקבלת החלטות",
+  "contentStyle": "מנכ\"לית ויועצת AI, לשעבר Chief Decision Scientist בגוגל",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "דמות מוכרת בעולם ה-AI עם קהל מקצועי. נושא קבלת ההחלטות עם AI מתחבר ל-Klober כצוות מודלים. מספר העוקבים מוצג כ-10K ולכן הוא בגבול התחתון של הטווח.",
+  "fitScore": 7,
+  "id": "decisionleader",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/decisionleader/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Apify top AI Instagram creators + בדיקת מיקום בחיפוש",
+    "url": "https://blog.apify.com/top-ai-instagram-influencers/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "Miami, Florida, United States (חיפוש)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Kevin Breeze",
+  "handle": "@kevinbreezetv",
+  "instagramUrl": "https://www.instagram.com/kevinbreezetv/",
+  "followers": 43600,
+  "followersText": "43.6K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "טכנולוגיה וסמארטפונים",
+  "contentStyle": "סרטוני סקירות, אונבוקסינג וטיפים לסמארטפונים, 300K+ ביוטיוב",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצר טק אמריקאי עם קהל ביוטיוב וטיקטוק, עובד עם מותגים (Brand Trips). Klober יכולה להיכנס לתוכן שלו כהצגה של כלי AI חדש.",
+  "fitScore": 7,
+  "id": "kevinbreezetv",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/kevinbreezetv/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "בדיקה ישירה באינסטגרם + חיפוש",
+    "url": "https://www.instagram.com/kevinbreezetv/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "Phoenix, AZ, United States (ביו באינסטגרם)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "TRINGA Krasniqi",
+  "handle": "@tringacodes",
+  "instagramUrl": "https://www.instagram.com/tringacodes/",
+  "followers": 26200,
+  "followersText": "26.2K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "קוד וקריירה בטק",
+  "contentStyle": "מהנדסת תוכנה ב-Microsoft (הפרופיל פרטי)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "מהנדסת תוכנה אמריקאית עם קהל של מפתחים. הפרופיל פרטי ולכן יש פחות חשיפה לתוכן. התאמה בינונית.",
+  "fitScore": 4,
+  "id": "tringacodes",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/tringacodes/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Socialveins",
+    "url": "https://socialveins.com/influencers/lists/programming-influencers-instagram"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "Nashville, United States (Socialveins)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Technoid LLC",
+  "handle": "@technoid.ai",
+  "instagramUrl": "https://www.instagram.com/technoid.ai/",
+  "followers": 41000,
+  "followersText": "41K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "חדשות וקורסי AI",
+  "contentStyle": "עמוד של חברת IT/AI אמריקאית שמעלה חדשות וקורסי AI חינמיים",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "עמוד תוכן AI של חברת תוכנה אמריקאית. Klober יכולה להיכנס כשיתוף פעולה עם חברה שמשלבת AI אצל לקוחות. מדובר בעמוד עסקי ולא באדם.",
+  "fitScore": 5,
+  "id": "technoid.ai",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/technoid.ai/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Scrumball",
+    "url": "https://www.scrumball.com/ranking/top-ai-influencers-on-instagram-in-united-states"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Scrumball; חברה אמריקאית)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Anna Mezentseva",
+  "handle": "@mezana.v",
+  "instagramUrl": "https://www.instagram.com/mezana.v/",
+  "followers": 73000,
+  "followersText": "73K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "AI ויצירתיות",
+  "contentStyle": "תוכן על AI עבור יוצרים, פרילנסרים ובעלי עסקים, כולל Midjourney ופרומפטים",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצרת תוכן על AI עבור יוצרים ובעלי עסקים. Klober יכולה להיכנס לתוכן שלה כצוות מודלים לעבודה יצירתית. הפוסטים לפעמים ברוסית.",
+  "fitScore": 5,
+  "id": "mezana.v",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/mezana.v/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "Scrumball",
+    "url": "https://www.scrumball.com/ranking/top-ai-influencers-on-instagram-in-united-states"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (Scrumball)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Aidan Melograna",
+  "handle": "@aidan.melograna",
+  "instagramUrl": "https://www.instagram.com/aidan.melograna/",
+  "followers": 24000,
+  "followersText": "24K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "יוצר UGC בטק וטיולים",
+  "contentStyle": "יוצר תוכן UGC בתחום הטק (לפי UGC Agent)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצר UGC אמריקאי בנישת הטק, שרגיל לעבוד עם מותגים. Klober יכולה להזמין אותו ליצור סרטון הדגמה בתשלום.",
+  "fitScore": 4,
+  "id": "aidan.melograna",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/aidan.melograna/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "UGC Agent",
+    "url": "https://ugcagent.app/ugc-creators/tech/micro/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (UGC Agent)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Chubee",
+  "handle": "@chubee.tech",
+  "instagramUrl": "https://www.instagram.com/chubee.tech/",
+  "followers": 19000,
+  "followersText": "19K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "יוצר UGC בטק וגיימינג",
+  "contentStyle": "יוצר תוכן UGC בתחום הטק והגיימינג (לפי UGC Agent)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצר UGC אמריקאי בנישת טק וגיימינג שרגיל לעבוד עם מותגים. Klober יכולה להזמין אותו ליצור סרטון הדגמה בתשלום.",
+  "fitScore": 4,
+  "id": "chubee.tech",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/chubee.tech/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "UGC Agent",
+    "url": "https://ugcagent.app/ugc-creators/tech/micro/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (UGC Agent)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "Marlen | Content Creator",
+  "handle": "@marlen_moralesm",
+  "instagramUrl": "https://www.instagram.com/marlen_moralesm/",
+  "followers": 18000,
+  "followersText": "18K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "יוצרת UGC בטק וטיולים",
+  "contentStyle": "יוצרת תוכן UGC בתחום הטק (לפי UGC Agent)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצרת UGC אמריקאית בנישת הטק שרגילה לעבוד עם מותגים. Klober יכולה להזמין אותה ליצור סרטון הדגמה בתשלום.",
+  "fitScore": 4,
+  "id": "marlen_moralesm",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/marlen_moralesm/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "UGC Agent",
+    "url": "https://ugcagent.app/ugc-creators/tech/micro/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (UGC Agent)",
+  "dateAdded": "2026-11-05"
+ },
+ {
+  "name": "ehxdell",
+  "handle": "@ehxdell",
+  "instagramUrl": "https://www.instagram.com/ehxdell/",
+  "followers": 13000,
+  "followersText": "13K",
+  "followersCheckedDate": "2026-11-05",
+  "niche": "יוצר UGC בטק וביוטי",
+  "contentStyle": "יוצר תוכן UGC בתחום הטק והביוטי (לפי UGC Agent)",
+  "contactEmail": "",
+  "linkInBio": "",
+  "hasAffiliate": false,
+  "whyFit": "יוצר UGC אמריקאי בנישת טק וביוטי. התאמה נמוכה לקהל של Klober, אך יכול ליצור סרטון הדגמה בתשלום.",
+  "fitScore": 3,
+  "id": "ehxdell",
+  "followersSource": "בדיקה ישירה באינסטגרם (2026-11-05): https://www.instagram.com/ehxdell/",
+  "engagementEstimate": "",
+  "engagementNote": "",
+  "engagementSource": "",
+  "avgViews": "",
+  "avgViewsSource": "",
+  "platforms": [
+   {
+    "name": "UGC Agent",
+    "url": "https://ugcagent.app/ugc-creators/tech/micro/"
+   }
+  ],
+  "affiliateEvidence": [],
+  "location": "United States (UGC Agent)",
+  "dateAdded": "2026-11-05"
  }
 ]
