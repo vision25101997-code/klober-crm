@@ -2378,5 +2378,125 @@
   "whyMatters": "הביקוש לסוכן אישי עם זיכרון הוכח בקנה מידה גדול, והשאלה של משתמשים כמה הסוכן זוכר עליהם מתחילה לעניין את התקשורת. ל-Klober יש הזדמנות להציג שקיפות ושליטה בזיכרון כיתרון.",
   "dateAdded": "2026-11-05",
   "id": "meta-s-muse-ai-agent-reached-10-million-u-s-downloads-in-40-"
+ },
+ {
+  "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+  "source": "TechCrunch",
+  "date": "2026-11-06",
+  "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+  "summary": "Meta השיקה ב-Muse את Spaces – שיחות ממוקדות שחיות בסרגל הצד וכל אחת מהן מוקדשת למטרה אחת, למשל תכנון חופשה. בתוך ה-Space הסוכן ממשיך לעבוד על המטרה בשם המשתמש. Meta מתארת אותן כ\"חוויות מותאמות אישית\".",
+  "whyMatters": "Muse עוברת מצ׳אט אחד לסביבות עבודה מתמשכות לפי פרויקט – בדיוק הכיוון של Klober עם צוותים וזיכרון לכל פרויקט. כדאי להדגיש ש-Klober עושה את זה עם כמה מודלים ולא עם סוכן של חברה אחת.",
+  "dateAdded": "2026-11-08",
+  "id": "meta-introduces-spaces-a-new-way-to-collaborate-with-your-mu"
+ },
+ {
+  "title": "AI Updates: Muse Gets Voice Mode, Claude Adds Personal Finance, Gemini Upgrades Video Generation Model",
+  "source": "ETV Bharat",
+  "date": "2026-11-06",
+  "url": "https://www.etvbharat.com/en/technology/muse-voice-mode-muse-avatar-claude-personal-finance-gemini-omni-1-dot-2-flash-google-anthropic-meta-enn26110604197",
+  "summary": "סיכום עדכונים: Muse של Meta קיבלה מצב קולי ואווטאר, Claude של Anthropic יכול עכשיו לעזור לנתח כספים אישיים, ו-Gemini Omni של Google מייצר סרטונים ארוכים יותר. שלוש החברות ממשיכות להוסיף יכולות לעוזרים שלהן באותו שבוע.",
+  "whyMatters": "כל מודל מתחזק בתחום אחר (קול, כספים, וידאו), ולכן למשתמש יש סיבה טובה להשתמש בכמה מודלים. זה בדיוק הטיעון של Klober: לחבר את החוזקות של כולם לצוות אחד במקום לבחור אחד.",
+  "dateAdded": "2026-11-08",
+  "id": "ai-updates-muse-gets-voice-mode-claude-adds-personal-finance"
+ },
+ {
+  "title": "個人 AI 代理更新：Muse 加入語音、dots 擴及企業",
+  "source": "X10 News",
+  "date": "2026-11-06",
+  "url": "https://x10news.com/articles/ai-tools-update-2026-11-06",
+  "summary": "לפי הסיכום, Meta הוסיפה ל-Muse קול בזמן אמת ואווטאר (קודם בארה״ב), OpenAI אפשרה לענות ל-dots ישירות מהתראות iOS ופתחה אותו לסביבות Enterprise, Edu ו-Healthcare שעומדות בתנאים, ו-Anthropic שינתה את אופן איפוס המכסות בתצוגה המקדימה של Claude Duet.",
+  "whyMatters": "dots של OpenAI נכנס לארגונים – שוק העסקים שגם Klober מכוונת אליו. כדאי לעקוב אחרי התמחור והתנאים שלהם ולהבליט את היתרון של Klober בעבודה עם כמה ספקי מודלים.",
+  "dateAdded": "2026-11-08",
+  "id": "ai-muse-dots"
+ },
+ {
+  "title": "Perplexity launches its own take on AI agents for work",
+  "source": "The Verge",
+  "date": "2026-11-05",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+  "summary": "Perplexity משיקה את Teammates – סוכני AI שפועלים כל הזמן ויכולים לבצע כמה משימות במקביל לאורך זמן. המוצר מיועד לעבודה מתמשכת ומורכבת ונפתח למנויי Max.",
+  "whyMatters": "גם השם וגם הרעיון (\"עמיתים\" שעובדים ברקע) קרובים מאוד ל-Klober. זה מתחרה ישיר שכדאי לנתח, ולהבליט את מה שמבדיל את Klober: כמה מודלים יחד וזיכרון משותף בבעלות הלקוח.",
+  "dateAdded": "2026-11-08",
+  "id": "perplexity-launches-its-own-take-on-ai-agents-for-work"
+ },
+ {
+  "title": "Kōhai is open to every business",
+  "source": "Kōhai Blog",
+  "date": "2026-11-05",
+  "url": "https://kohai.co/blog/kohai-launch",
+  "summary": "Kōhai השיקה סביבת עבודה מרובת משתתפים עם AI שבנויה לעבודת צוות, ונפתחה לכל העסקים. המוצר מציע עמיתי AI לפי תפקיד והקשר וזיכרון משותפים לצוות.",
+  "whyMatters": "עוד סטארטאפ שמוכר \"עמיתי AI\" לצוותים עם זיכרון משותף – הקטגוריה של Klober מתמלאת. כדאי לבדוק את התמחור והמסרים שלהם ולחדד את הייחודיות של Klober (שילוב כמה מודלים, ייבוא שיחות קיימות).",
+  "dateAdded": "2026-11-08",
+  "id": "k-hai-is-open-to-every-business"
+ },
+ {
+  "title": "Introducing MAIA: AI That Makes Teams Better Together",
+  "source": "Zyphra",
+  "date": "2026-11-06",
+  "url": "https://www.zyphra.com/our-work/introducingmaia",
+  "summary": "Zyphra השיקה בבטא את MAIA, סוכן יוזם שעובד עם כמה משתתפים ופועל בתוך הכלים שהצוות כבר משתמש בהם. כל הצוות עובד עם אותו MAIA, עם הקשר מתמשך משותף, והחברה מדגישה בניית אמון הדרגתית לפני שמעבירים לו אחריות.",
+  "whyMatters": "\"כל הצוות עובד עם אותו סוכן וזיכרון\" הוא כמעט ההבטחה של Klober. כדאי ללמוד מהמסגור שלהם (אמון כמו בעמית אנושי) ולהדגיש ש-Klober לא תלויה במודל אחד.",
+  "dateAdded": "2026-11-08",
+  "id": "introducing-maia-ai-that-makes-teams-better-together"
+ },
+ {
+  "title": "The components of agent memory",
+  "source": "Anthropic",
+  "date": "2026-11-06",
+  "url": "https://www.anthropic.com/research/components-of-agent-memory",
+  "summary": "Anthropic מסבירה איך מתכננים זיכרון לסוכנים: הסוכן צריך להחליט מה שווה לזכור לפני שהוא יודע מה יקרה בהמשך. המאמר מתאר תהליך \"חלימה\" שבו Claude מארגן את הזיכרון ומתקן טעויות.",
+  "whyMatters": "מחקר ישיר על הליבה של Klober – זיכרון משותף לסוכנים. כדאי לקרוא לעומק ולאמץ רעיונות כמו ארגון ותיקון זיכרון ברקע לזיכרון המשותף של צוות המודלים.",
+  "dateAdded": "2026-11-08",
+  "id": "the-components-of-agent-memory"
+ },
+ {
+  "title": "Living Brain offers one shared memory for ChatGPT, Claude and agents",
+  "source": "The Independent AI",
+  "date": "2026-11-04",
+  "url": "https://theindependentai.com/news/2026-11-04/living-brain-offers-one-shared-memory",
+  "summary": "ChatAndBuild השיקה את Living Brain, שכבת זיכרון שיושבת מחוץ לכל מודל. היא מאפשרת ל-ChatGPT, ל-Claude, ל-Claude Code ול-Codex לעבוד עם אותו הקשר של הפרויקט דרך MCP.",
+  "whyMatters": "מתחרה ישיר לרעיון של זיכרון משותף לכמה מודלים, שמגיע כשכבה פתוחה דרך MCP. Klober צריכה להבליט את החוויה המלאה (צוות, שיחות, ייבוא היסטוריה) מעבר לשכבת זיכרון בלבד.",
+  "dateAdded": "2026-11-08",
+  "id": "living-brain-offers-one-shared-memory-for-chatgpt-claude-and"
+ },
+ {
+  "title": "Beacon: Asymptote Labs launched Beacon",
+  "source": "Fresh Weights",
+  "date": "2026-11-04",
+  "url": "https://freshweights.com/launch/beacon-open-source-self-improving-memory-for-ai-coding-agents/",
+  "summary": "Asymptote Labs השיקה את Beacon, זיכרון בקוד פתוח לסוכני קוד שמשתפר בעצמו. הזיכרון עובד עם כמה סביבות סוכנים ולא נעול על כלי קוד אחד.",
+  "whyMatters": "גם בעולם המפתחים הדרישה היא לזיכרון שעובר בין כלים ומודלים. זה מאשר את הכיוון של Klober ופותח אפשרות לשיתופי פעולה או אינטגרציה עם שכבות זיכרון פתוחות.",
+  "dateAdded": "2026-11-08",
+  "id": "beacon-asymptote-labs-launched-beacon"
+ },
+ {
+  "title": "7 New AI Agent Tools for Memory, Email and Backups",
+  "source": "Toolclove",
+  "date": "2026-11-07",
+  "url": "https://toolclove.com/blog/new-ai-agent-tools-november-2026",
+  "summary": "סקירה של שבעה כלים חדשים לסוכני AI, ובראשם Make0 Brain – זיכרון אחד שמשותף ל-Claude, ChatGPT ו-Cursor – ו-OrgSync, \"מוח חברה\" שכל ה-AI של הצוות יכול לצטט ממנו. ברשימה גם תיבות מייל לסוכנים, גיבויים שסוכן לא יכול למחוק וטרמינל להרצת כמה סוכני קוד.",
+  "whyMatters": "שני הכלים הראשונים ברשימה עוסקים בדיוק בזיכרון משותף בין מודלים ולצוות – הקטגוריה של Klober מקבלת חשיפה וגם מתחרים קטנים. כדאי לוודא ש-Klober מופיעה ברשימות כאלה.",
+  "dateAdded": "2026-11-08",
+  "id": "7-new-ai-agent-tools-for-memory-email-and-backups"
+ },
+ {
+  "title": "Nooks Secures $500 Million from General Catalyst and Launches Node, the First AI Personal Assistant for Sales",
+  "source": "PR Newswire",
+  "date": "2026-11-04",
+  "url": "https://www.prnewswire.com/news-releases/nooks-secures-500-million-from-general-catalyst-and-launches-node-the-first-ai-personal-assistant-for-sales-302928795.html",
+  "summary": "Nooks, פלטפורמת סוכני מכירות, הודיעה על 500 מיליון דולר מקרן Customer Value Fund של General Catalyst (מימון שאינו מדלל). במקביל השיקה את Node, עוזר AI אישי לאנשי מכירות.",
+  "whyMatters": "כסף גדול זורם ל\"עוזר AI אישי\" לתפקיד מסוים. זה מחזק את המסר של Klober שעמיתי AI לפי תפקיד (מכירות, שיווק, מחקר) עם זיכרון משותף הם קטגוריה שמשקיעים מאמינים בה.",
+  "dateAdded": "2026-11-08",
+  "id": "nooks-secures-500-million-from-general-catalyst-and-launches"
+ },
+ {
+  "title": "The Infrastructure Behind Agent Work: Plato, Fragment and Serval",
+  "source": "The Agent Report",
+  "date": "2026-11-03",
+  "url": "https://the-agent-report.com/2026/11/agent-proof-plato-fragment-serval/",
+  "summary": "שלוש חברות תשתית לסוכנים גייסו כסף: Plato הודיעה על סבב A של 16 מיליון דולר, Fragment חשפה מימון כולל של 56 מיליון דולר, ו-Serval גייסה סבב C של 150 מיליון דולר. הכתבה מתארת את שכבת התשתית שמאפשרת לסוכנים לבצע עבודה אמיתית.",
+  "whyMatters": "משקיעים מממנים את התשתית שמתחת לסוכנים, כלומר השוק של עבודה עם סוכנים מתבגר. Klober יכולה להשתמש בזה בשיחות עם משקיעים ולהציג את עצמה כשכבת חוויה מעל התשתית הזו.",
+  "dateAdded": "2026-11-08",
+  "id": "the-infrastructure-behind-agent-work-plato-fragment-and-serv"
  }
 ]
