@@ -1,5 +1,14 @@
 [
   {
+    "version": "v4",
+    "date": "2026-11-26",
+    "time": "19:55",
+    "note": "עדכן את האתר",
+    "changed": ["index", "blog", "docs", "legal", "security", "pricing", "login"],
+    "commit": "https://github.com/vision25101997-code/klober-site/commit/ba2b2a0b07582e9b76894270057850c820880ee7",
+    "live": true
+  },
+  {
     "version": "v3",
     "date": "2026-10-25",
     "time": "01:34",
